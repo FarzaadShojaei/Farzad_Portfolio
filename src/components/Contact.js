@@ -88,7 +88,7 @@ const Contact = () => {
         background: 'white',
         borderRadius: '15px',
         boxShadow: '0 5px 15px rgba(0, 0, 0, 0.15)',
-        border: '2px solid rgba(220, 20, 60, 0.1)'
+        border: '2px solid rgba(14, 165, 233, 0.1)'
       }}>
         <h3 style={{ 
           fontSize: '1.5rem', 
@@ -114,7 +114,7 @@ const Contact = () => {
             href="mailto:farzaadshojaei@gmail.com"
             style={{
               display: 'inline-block',
-              background: 'linear-gradient(135deg, #dc143c 0%, #8b0000 100%)',
+              background: 'linear-gradient(135deg, #0ea5e9 0%, #1e40af 100%)',
               color: 'white',
               padding: '1rem 2rem',
               borderRadius: '30px',
@@ -122,15 +122,15 @@ const Contact = () => {
               fontWeight: '600',
               fontSize: '1.1rem',
               transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-              boxShadow: '0 5px 15px rgba(220, 20, 60, 0.4)'
+              boxShadow: '0 5px 15px rgba(14, 165, 233, 0.4)'
             }}
             onMouseOver={(e) => {
               e.target.style.transform = 'translateY(-2px)';
-              e.target.style.boxShadow = '0 10px 25px rgba(220, 20, 60, 0.6)';
+              e.target.style.boxShadow = '0 10px 25px rgba(14, 165, 233, 0.6)';
             }}
             onMouseOut={(e) => {
               e.target.style.transform = 'translateY(0)';
-              e.target.style.boxShadow = '0 5px 15px rgba(220, 20, 60, 0.4)';
+              e.target.style.boxShadow = '0 5px 15px rgba(14, 165, 233, 0.4)';
             }}
           >
             Send me an Email

@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 
 const Home = () => {
   const subtitles = [
-    'a SDET',
     'a Software QA Engineer',
-    'a Blockchain & Security Enthusiast'
+    'a Blockchain & Security Enthusiast',
+    'an Automation Expert'
   ];
 
   const [currentSubtitle, setCurrentSubtitle] = useState(0);

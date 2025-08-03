@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaUser, FaBlog, FaBriefcase, FaCogs, FaGraduationCap, FaEnvelope } from 'react-icons/fa';
+import { FaUser, FaBlog, FaBriefcase, FaCogs, FaGraduationCap, FaEnvelope, FaProjectDiagram } from 'react-icons/fa';
 
 const Sidebar = ({ activeSection, setActiveSection }) => {
   const navItems = [
@@ -8,6 +8,7 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
     { id: 'experience', label: 'Experience', icon: <FaBriefcase /> },
     { id: 'skills', label: 'Skills', icon: <FaCogs /> },
     { id: 'education', label: 'Education', icon: <FaGraduationCap /> },
+    { id: 'projects', label: 'Projects', icon: <FaProjectDiagram /> },
     { id: 'contact', label: 'Contact', icon: <FaEnvelope /> },
   ];
 
@@ -35,7 +36,7 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
           <div className="profile-initials">FS</div>
         </div>
         <h2 className="sidebar-name">Farzaad Shojaei</h2>
-        <p className="sidebar-title">SDET & QA Engineer</p>
+        <p className="sidebar-title">Software QA Engineer | Blockchain & Security Enthusiast</p>
       </div>
       
       <nav>

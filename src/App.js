@@ -6,6 +6,7 @@ import Experience from './components/Experience';
 import Skills from './components/Skills';
 import Education from './components/Education';
 import Contact from './components/Contact';
+import Projects from './components/Projects';
 
 function App() {
   const [activeSection, setActiveSection] = useState('about');
@@ -20,6 +21,8 @@ function App() {
         return <Skills />;
       case 'education':
         return <Education />;
+      case 'projects':
+        return <Projects />;
       case 'contact':
         return <Contact />;
       default:
