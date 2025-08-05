@@ -8,13 +8,12 @@ const Skills = () => {
       icon: '/images/skills/code-icon.png',
       skills: [
         { name: 'JavaScript', icon: '/images/skills/javascript.png' },
-        { name: 'Python', icon: '/images/skills/python.png' },
-        { name: 'Java', icon: '/images/skills/java.png' },
-        { name: 'TypeScript', icon: '/images/skills/typescript.png' },
-        { name: 'SQL', icon: '/images/skills/sql.png' },
+        { name: 'Java', icon: '/images/skills/Java.png' },
+        { name: 'TypeScript', icon: '/images/skills/Typescript.png' },
+        { name: 'SQL', icon: '/images/skills/Sql.png' },
         { name: 'Bash/Shell', icon: '/images/skills/bash.png' },
-        { name: 'Rust', icon: '/images/skills/rust.png' },
-        { name: 'Solidity', icon: '/images/skills/solidity.png' }
+        { name: 'Rust', icon: '/images/skills/Rust.png' },
+        { name: 'Solidity', icon: '/images/skills/Solidity.png' }
       ]
     },
     {

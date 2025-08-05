@@ -15,16 +15,13 @@ const Experience = () => {
       company: 'Smartech',
       role: 'Software QA Engineer',
       logo: '/images/companies/smartech.png',
-      url: 'https://smartech.com',
+      url: 'https://smartech.ir',
       description: 'Iran’s largest Mar-tech and Ad-tech solution providing startup that brings serves companies with more than 15 million active Users and customers.',
       detailedPoints: [
-        'Implemented comprehensive CI/CD pipelines using Jenkins and GitHub Actions',
-        'Reduced overall testing time by 60% through advanced automation strategies',
-        'Mentored and trained 5+ junior QA engineers on best practices',
-        'Specialized in API testing using Postman, REST Assured, and custom frameworks',
-        'Conducted performance testing with JMeter for high-traffic applications',
-        'Performed security validation and vulnerability assessments',
-        'Established quality gates and testing standards across development teams'
+        'Developed an AI-powered Playwright test automation framework integrated with LLM and MCP for self-healing and adaptive locator detection, significantly boosting automated test execution speed and reliability by 30%',
+        'Orchestrated a comprehensive Software Testing Life Cycle (STLC), aligning QA deliverables with sprint milestones for increased transparency and predictability',
+        'Automated QA workflows for bug fixes and pre-release cycles using n8n, cutting test execution time by 50% and accelerating QA cycles for faster releases',
+        
       ],
       duration: 'August 2024 - Present'
     },
@@ -32,16 +29,14 @@ const Experience = () => {
       company: 'Mofid Securities',
       role: 'Software Test Engineer',
       logo: '/images/companies/mofid.png',
-      url: 'https://mofidsecurities.com',
+      url: 'https://www.emofid.com/',
       description: 'Iran’s largest full-service stock brokerage firm with leading private investment advisory with more than 10 million active users',
       detailedPoints: [
-        'Built robust automation suites with Selenium WebDriver and Cypress',
-        'Implemented cross-browser testing strategies for web applications',
-        'Created mobile testing frameworks for iOS and Android applications',
-        'Integrated automated tests with CI/CD pipelines in Jenkins',
-        'Developed API testing suites for microservices architecture',
-        'Performed database validation and backend testing',
-        'Collaborated with DevOps team on deployment automation'
+        'Designed and maintained 400+ test cases in Jira, optimizing test coverage and refining product validation, as reflected in Scrum reports',
+        'Expanded automated API tests in Postman, contributing to a 30% improvement in response times as verified by K6',
+        'Built robust end-to-end test flows for mobile & Web clients using Appium and Cypress, reducing manual acceptance efforts by 50% based on test cases',
+        'Collaborated with DevOps to improve GitLab CI workflows for smoother web and mobile versioning, resulting in faster 50% production releases.',
+        
       ],
       duration: 'January 2023 - August 2024'
     },
@@ -49,16 +44,12 @@ const Experience = () => {
       company: 'Panco.app',
       role: 'Software Tester Intern',
       logo: '/images/companies/panco.png',
-      url: 'https://panco.app',
+      url: 'https://panco.me',
       description: 'The First Social Networking Platform in Iran with more than 1 Million active users per day, Focused on playing multiple mobile games and Communicating with each other',
       detailedPoints: [
-        'Executed manual testing scenarios for web application features',
-        'Created and maintained detailed test cases and test documentation',
-        'Participated in daily standups and sprint planning sessions',
-        'Identified and reported bugs using JIRA bug tracking system',
-        'Collaborated closely with development teams on bug resolution',
-        'Learned automation fundamentals with Selenium basics',
-        'Contributed to test planning and strategy discussions'
+        'Detected and addressed over 80 software vulnerabilities, improving system resilience by 40% and reducing end-user complaints',
+        'Authored and executed 100+ manual test cases, exposing multiple critical crash scenarios in game-play environments'
+
       ],
       duration: 'June 2022 - November 2022'
     }
