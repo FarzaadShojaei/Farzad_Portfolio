@@ -10,12 +10,10 @@ const Education = () => {
       icon: <FaGraduationCap />,
       duration: '2019 - 2023',
       details: 'Focused on software engineering, algorithms, and data structures. Completed coursework in software testing, quality assurance, and project management. Participated in coding competitions and hackathons. Final project involved developing an automated testing framework for web applications.',
-      gpa: '16.73',
+      gpa: '3.3/5',
       achievements: [
-        'Dean\'s List for 4 consecutive semesters',
-        'Final project achieved 95% grade',
-        'Participated in 3 hackathons with 2 winning projects',
-        'Led university coding club for 2 years'
+        'Led the Discrete Mathematics Class as a TA for a Year',
+        
       ]
     },
     {
@@ -25,13 +23,7 @@ const Education = () => {
       icon: <FaSchool />,
       duration: '2015 - 2019',
       details: 'Graduated with honors, specializing in Mathematics and Science. Active member of the Computer Club and Math Olympiad team. Developed early interest in programming and technology through various computer science courses and extracurricular activities.',
-      gpa: '17.34',
-      achievements: [
-        'Graduated with honors (Top 5% of class)',
-        'Math Olympiad regional finalist',
-        'Computer Club president for 2 years',
-        'Perfect attendance award'
-      ]
+      gpa: '3.4/5'
     }
   ];
 
@@ -77,31 +69,33 @@ const Education = () => {
             <div className="education-details">
               <p style={{ marginBottom: '1.5rem' }}>{edu.details}</p>
               
-              <div>
-                <h4 style={{ fontSize: '1.1rem', color: '#333', marginBottom: '1rem', fontWeight: '600' }}>
-                  Key Achievements:
-                </h4>
-                <ul style={{ listStyle: 'none', padding: 0 }}>
-                  {edu.achievements.map((achievement, achIndex) => (
-                    <li key={achIndex} style={{ 
-                      marginBottom: '0.5rem', 
-                      paddingLeft: '1.5rem', 
-                      position: 'relative',
-                      color: '#555'
-                    }}>
-                      <span style={{ 
-                        position: 'absolute', 
-                        left: '0', 
-                        color: '#667eea',
-                        fontWeight: 'bold'
+              {edu.achievements && edu.achievements.length > 0 && (
+                <div>
+                  <h4 style={{ fontSize: '1.1rem', color: '#333', marginBottom: '1rem', fontWeight: '600' }}>
+                    Key Achievements:
+                  </h4>
+                  <ul style={{ listStyle: 'none', padding: 0 }}>
+                    {edu.achievements.map((achievement, achIndex) => (
+                      <li key={achIndex} style={{ 
+                        marginBottom: '0.5rem', 
+                        paddingLeft: '1.5rem', 
+                        position: 'relative',
+                        color: '#555'
                       }}>
-                        •
-                      </span>
-                      {achievement}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                        <span style={{ 
+                          position: 'absolute', 
+                          left: '0', 
+                          color: '#667eea',
+                          fontWeight: 'bold'
+                        }}>
+                          •
+                        </span>
+                        {achievement}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           </div>
         ))}

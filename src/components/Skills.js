@@ -10,7 +10,7 @@ const Skills = () => {
         { name: 'JavaScript', icon: '/images/skills/javascript.png' },
         { name: 'Java', icon: '/images/skills/Java.png' },
         { name: 'TypeScript', icon: '/images/skills/Typescript.png' },
-        { name: 'SQL', icon: '/images/skills/Sql.png' },
+        { name: 'SQL', icon: '/images/skills/SQL.png' },
         { name: 'Bash/Shell', icon: '/images/skills/bash.png' },
         { name: 'Rust', icon: '/images/skills/Rust.png' },
         { name: 'Solidity', icon: '/images/skills/Solidity.png' }
@@ -20,12 +20,11 @@ const Skills = () => {
       title: 'Web Automation',
       icon: '/images/skills/web-icon.png',
       skills: [
-        { name: 'Selenium', icon: '/images/skills/selenium.png' },
+        { name: 'Selenium', icon: '/images/skills/Selenium.png' },
         { name: 'Cypress', icon: '/images/skills/cypress.png' },
         { name: 'Playwright', icon: '/images/skills/playwright.png' },
-        { name: 'Appium', icon: '/images/skills/appium.png' },
         { name: 'Puppeteer', icon: '/images/skills/puppeteer.png' },
-        { name: 'WebDriverIO', icon: '/images/skills/webdriverio.png' }
+        { name: 'Cucumber', icon: '/images/skills/cucumber.png' }
       ]
     },
     {
@@ -42,11 +41,9 @@ const Skills = () => {
       skills: [
         { name: 'Postman', icon: '/images/skills/postman.png' },
         { name: 'REST Assured', icon: '/images/skills/rest-assured.png' },
-        { name: 'Newman', icon: '/images/skills/newman.png' },
         { name: 'Swagger', icon: '/images/skills/swagger.png' },
         { name: 'GraphQL', icon: '/images/skills/graphql.png' },
-        { name: 'SOAP UI', icon: '/images/skills/soapui.png' },
-        { name: 'Axios', icon: '/images/skills/axios.png' }
+        { name: 'SOAP UI', icon: '/images/skills/soapui.png' }
       ]
     },
     {
@@ -54,11 +51,8 @@ const Skills = () => {
       icon: '/images/skills/framework-icon.png',
       skills: [
         { name: 'TestNG', icon: '/images/skills/testng.png' },
-        { name: 'Jest', icon: '/images/skills/jest.png' },
         { name: 'Mocha', icon: '/images/skills/mocha.png' },
-        { name: 'Pytest', icon: '/images/skills/pytest.png' },
         { name: 'Robot Framework', icon: '/images/skills/robot.png' },
-        { name: 'Cucumber', icon: '/images/skills/cucumber.png' },
         { name: 'Anchor', icon: '/images/skills/anchor.png' },
         { name: 'Foundry', icon: '/images/skills/foundry.png' },
         { name: 'Hardhat', icon: '/images/skills/hardhat.png' }
@@ -112,9 +106,6 @@ const Skills = () => {
       icon: '/images/skills/reporting-icon.png',
       skills: [
         { name: 'Allure', icon: '/images/skills/allure.png' },
-        { name: 'ExtentReports', icon: '/images/skills/extent.png' },
-        { name: 'TestNG Reports', icon: '/images/skills/testng.png' },
-        { name: 'Cucumber Reports', icon: '/images/skills/cucumber.png' }
       ]
     },
     {
