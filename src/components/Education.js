@@ -22,7 +22,7 @@ const Education = () => {
       degree: 'High School Diploma',
       icon: <FaSchool />,
       duration: '2015 - 2019',
-      details: 'Graduated with honors, specializing in Mathematics and Science. Active member of the Computer Club and Math Olympiad team. Developed early interest in programming and technology through various computer science courses and extracurricular activities.',
+      details: 'Graduated with honors, specializing in Mathematics and Science.',
       gpa: '3.4/5'
     }
   ];

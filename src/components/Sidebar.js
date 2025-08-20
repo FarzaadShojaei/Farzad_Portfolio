@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaUser, FaBlog, FaBriefcase, FaCogs, FaGraduationCap, FaEnvelope, FaProjectDiagram } from 'react-icons/fa';
+import { FaUser, FaBlog, FaBriefcase, FaCogs, FaGraduationCap, FaEnvelope, FaProjectDiagram, FaCertificate } from 'react-icons/fa';
 
 const Sidebar = ({ activeSection, setActiveSection }) => {
   const navItems = [
@@ -9,6 +9,7 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
     { id: 'skills', label: 'Skills', icon: <FaCogs /> },
     { id: 'education', label: 'Education', icon: <FaGraduationCap /> },
     { id: 'projects', label: 'Projects', icon: <FaProjectDiagram /> },
+    { id: 'certificates', label: 'Certificates', icon: <FaCertificate /> },
     { id: 'contact', label: 'Contact', icon: <FaEnvelope /> },
   ];
 

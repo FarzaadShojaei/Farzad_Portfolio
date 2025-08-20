@@ -30,18 +30,21 @@ const Home = () => {
         
         <div className="description">
           <p>
-            Welcome to my portfolio! I am a passionate Software Development Engineer in Test (SDET) and Quality Assurance Engineer 
-            with expertise in automated testing, blockchain technology, and cybersecurity. I specialize in creating robust 
-            testing frameworks and ensuring the highest quality standards for software applications.
+            Welcome to my portfolio! I am a passionate QA Engineer with 3+ years of experience in automation testing and 
+            cross-functional collaboration. Skilled in building AI-enhanced test frameworks and optimizing QA processes for 
+            high-scale systems serving more than 15 million users. I have a strong track record of aligning QA efforts with 
+            agile development and am seeking Software QA Engineer, Test Engineer or SDET roles in fast-paced, tech-driven environments.
           </p>
           <br />
           <p>
-            With a strong background in both manual and automated testing, I bring a comprehensive approach to quality assurance. 
-            My experience spans across web applications, mobile apps, APIs, and blockchain platforms. I'm constantly exploring 
-            new technologies and methodologies to enhance testing efficiency and software reliability.
+            As a Software Development Engineer in Test (SDET) and Quality Assurance Engineer, I specialize in creating robust 
+            testing frameworks and ensuring the highest quality standards for software applications. My expertise spans automated 
+            testing, blockchain technology, and cybersecurity, with a comprehensive approach that covers web applications, mobile 
+            apps, APIs, and blockchain platforms.
           </p>
           <br />
           <p>
+            I'm constantly exploring new technologies and methodologies to enhance testing efficiency and software reliability. 
             When I'm not testing software, you can find me writing about technology trends, contributing to open-source projects, 
             or diving deep into the latest developments in blockchain and security. I believe in continuous learning and sharing 
             knowledge with the community.
