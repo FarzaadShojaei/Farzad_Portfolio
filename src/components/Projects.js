@@ -15,7 +15,7 @@ const Projects = () => {
     },
     {
       title: "Rust Crypto Wallet",
-      githubUrl: "https://github.com/farzaadshojaei/nft-marketplace",
+      githubUrl: "https://github.com/farzaadshojaei/Rust_CryptoWallet",
       description: "A full-featured NFT marketplace allowing users to mint, buy, sell, and auction digital assets. Includes IPFS integration for metadata storage, royalty distribution system, and comprehensive testing suite ensuring platform reliability and security."
     }
   ];
@@ -23,22 +23,22 @@ const Projects = () => {
   const qaProjects = [
     {
       title: "Chatbrief",
-      githubUrl: "https://github.com/farzaadshojaei/selenium-framework",
+      githubUrl: "https://github.com/FarzaadShojaei/chatBrief_TelegramBot",
       description: "A robust Selenium-based testing framework with Page Object Model (POM) architecture, data-driven testing capabilities, and comprehensive reporting. Supports cross-browser testing, parallel execution, and integration with CI/CD pipelines for continuous quality assurance."
     },
     {
-      title: "K6",
-      githubUrl:"https://github.com/farzaadshojaei/api-testing-suite",
+      title: "Cucumber-BDD",
+      githubUrl:"https://github.com/FarzaadShojaei/Cucumber-BDD",
       description: "Complete REST API testing solution using Postman, Newman, and Jest. Features automated test generation, performance testing, security validation, and detailed reporting with coverage metrics for comprehensive API quality assessment."
     },
     {
-      title: "CRM",
-      githubUrl: "https://github.com/farzaadshojaei/mobile-testing-tools",
+      title: "Newman",
+      githubUrl: "https://github.com/FarzaadShojaei/Newman",
       description: "Cross-platform mobile testing framework using Appium and WebDriver for iOS and Android applications. Includes device farm integration, performance monitoring, accessibility testing, and automated regression test suites."
     },
     {
-      title: "Cucumber-BDD",
-      githubUrl: "https://github.com/farzaadshojaei/load-testing-platform",
+      title: "K6PerformanceTesting",
+      githubUrl: "https://github.com/FarzaadShojaei/K6PerformanceTesting",
       description: "Scalable load testing platform built with JMeter and K6 for performance evaluation of web applications. Features distributed testing, real-time monitoring, custom metrics collection, and automated performance regression detection."
     }
   ];
