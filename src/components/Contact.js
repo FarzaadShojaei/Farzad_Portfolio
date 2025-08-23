@@ -12,9 +12,9 @@ const Contact = () => {
     },
     {
       title: 'LinkedIn',
-      info: 'linkedin.com/in/farzaadshojaei',
+      info: 'linkedin.com/in/farzad-shojaei',
       icon: <FaLinkedin />,
-      link: 'https://www.linkedin.com/in/farzaadshojaei',
+      link: 'https://www.linkedin.com/in/farzad-shojaei/',
       description: 'Connect with me professionally and see my latest career updates'
     },
     {
@@ -52,28 +52,44 @@ const Contact = () => {
       
       <div className="contact-grid">
         {contactInfo.map((contact, index) => (
-          <div key={index} className="contact-card">
+          <div 
+            key={index} 
+            className={`contact-card ${contact.link ? 'clickable' : 'non-clickable'}`} 
+            style={{ position: 'relative' }}
+          >
+            {contact.link && (
+              <a 
+                href={contact.link}
+                target={contact.link.startsWith('http') ? '_blank' : '_self'}
+                rel={contact.link.startsWith('http') ? 'noopener noreferrer' : ''}
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                  zIndex: 1,
+                  textDecoration: 'none',
+                  color: 'inherit'
+                }}
+                aria-label={`Contact via ${contact.title}`}
+              />
+            )}
             <div className="contact-icon">
               {contact.icon}
             </div>
             <h3 className="contact-title">{contact.title}</h3>
-            {contact.link ? (
-              <a 
-                href={contact.link} 
-                className="contact-info"
-                target={contact.link.startsWith('http') ? '_blank' : '_self'}
-                rel={contact.link.startsWith('http') ? 'noopener noreferrer' : ''}
-              >
-                {contact.info}
-              </a>
-            ) : (
-              <p className="contact-info">{contact.info}</p>
-            )}
+            <div className="contact-info" style={{ position: 'relative', zIndex: 2, pointerEvents: 'none' }}>
+              {contact.info}
+            </div>
             <p style={{ 
               fontSize: '0.9rem', 
               color: '#888', 
               marginTop: '1rem', 
-              lineHeight: '1.4' 
+              lineHeight: '1.4',
+              position: 'relative',
+              zIndex: 2,
+              pointerEvents: 'none'
             }}>
               {contact.description}
             </p>
