@@ -6,32 +6,33 @@ const Skills = () => {
     {
       title: 'Languages',
       icon: '/images/skills/code-icon.png',
+      fallbackIcon: '💻',
       skills: [
         { name: 'JavaScript', icon: '/images/skills/javascript.png' },
-        { name: 'Python', icon: '/images/skills/python.png' },
-        { name: 'Java', icon: '/images/skills/java.png' },
-        { name: 'TypeScript', icon: '/images/skills/typescript.png' },
-        { name: 'SQL', icon: '/images/skills/sql.png' },
+        { name: 'Java', icon: '/images/skills/Java.png' },
+        { name: 'TypeScript', icon: '/images/skills/Typescript.png' },
+        { name: 'SQL', icon: '/images/skills/SQL.png' },
         { name: 'Bash/Shell', icon: '/images/skills/bash.png' },
-        { name: 'Rust', icon: '/images/skills/rust.png' },
-        { name: 'Solidity', icon: '/images/skills/solidity.png' }
+        { name: 'Rust', icon: '/images/skills/Rust.png' },
+        { name: 'Solidity', icon: '/images/skills/Solidity.png' }
       ]
     },
     {
       title: 'Web Automation',
       icon: '/images/skills/web-icon.png',
+      fallbackIcon: '🌐',
       skills: [
-        { name: 'Selenium', icon: '/images/skills/selenium.png' },
+        { name: 'Selenium', icon: '/images/skills/Selenium.png' },
         { name: 'Cypress', icon: '/images/skills/cypress.png' },
         { name: 'Playwright', icon: '/images/skills/playwright.png' },
-        { name: 'Appium', icon: '/images/skills/appium.png' },
         { name: 'Puppeteer', icon: '/images/skills/puppeteer.png' },
-        { name: 'WebDriverIO', icon: '/images/skills/webdriverio.png' }
+        { name: 'Cucumber', icon: '/images/skills/cucumber.png' }
       ]
     },
     {
       title: 'Mobile Automation',
       icon: '/images/skills/mobile-icon.png',
+      fallbackIcon: '📱',
       skills: [
         { name: 'Appium', icon: '/images/skills/appium.png' },
         { name: 'Android Emulator', icon: '/images/skills/android.png' }
@@ -40,26 +41,23 @@ const Skills = () => {
     {
       title: 'API Automation',
       icon: '/images/skills/api-icon.png',
+      fallbackIcon: '🔗',
       skills: [
         { name: 'Postman', icon: '/images/skills/postman.png' },
         { name: 'REST Assured', icon: '/images/skills/rest-assured.png' },
-        { name: 'Newman', icon: '/images/skills/newman.png' },
         { name: 'Swagger', icon: '/images/skills/swagger.png' },
         { name: 'GraphQL', icon: '/images/skills/graphql.png' },
-        { name: 'SOAP UI', icon: '/images/skills/soapui.png' },
-        { name: 'Axios', icon: '/images/skills/axios.png' }
+        { name: 'SOAP UI', icon: '/images/skills/soapui.png' }
       ]
     },
     {
       title: 'Frameworks',
       icon: '/images/skills/framework-icon.png',
+      fallbackIcon: '⚡',
       skills: [
         { name: 'TestNG', icon: '/images/skills/testng.png' },
-        { name: 'Jest', icon: '/images/skills/jest.png' },
         { name: 'Mocha', icon: '/images/skills/mocha.png' },
-        { name: 'Pytest', icon: '/images/skills/pytest.png' },
         { name: 'Robot Framework', icon: '/images/skills/robot.png' },
-        { name: 'Cucumber', icon: '/images/skills/cucumber.png' },
         { name: 'Anchor', icon: '/images/skills/anchor.png' },
         { name: 'Foundry', icon: '/images/skills/foundry.png' },
         { name: 'Hardhat', icon: '/images/skills/hardhat.png' }
@@ -68,6 +66,7 @@ const Skills = () => {
     {
       title: 'Unit | Integration Tests',
       icon: '/images/skills/test-icon.png',
+      fallbackIcon: '🧪',
       skills: [
         { name: 'Jest', icon: '/images/skills/jest.png' },
         { name: 'JUnit', icon: '/images/skills/junit.png' },
@@ -78,6 +77,7 @@ const Skills = () => {
     {
       title: 'Performance Tests',
       icon: '/images/skills/performance-icon.png',
+      fallbackIcon: '⚡',
       skills: [
         { name: 'JMeter', icon: '/images/skills/jmeter.png' },
         { name: 'K6', icon: '/images/skills/k6.png' }
@@ -86,6 +86,7 @@ const Skills = () => {
     {
       title: 'VCS | CI/CD | Environments',
       icon: '/images/skills/devops-icon.png',
+      fallbackIcon: '⚙️',
       skills: [
         { name: 'Git', icon: '/images/skills/git.png' },
         { name: 'GitHub Actions', icon: '/images/skills/github-actions.png' },
@@ -98,31 +99,31 @@ const Skills = () => {
     {
       title: 'Test Management',
       icon: '/images/skills/management-icon.png',
+      fallbackIcon: '📋',
       skills: [
-        { name: 'Jira', icon: '/images/skills/jira.png' },
+        { name: 'Jira', icon: '/images/skills/jira.jpg' },
         { name: 'TestRail', icon: '/images/skills/testrail.png' },
         { name: 'Zephyr', icon: '/images/skills/zephyr.png' },
-        { name: 'ClickUp', icon: '/images/skills/clickup.png' },
+        { name: 'ClickUp', icon: '/images/skills/clickup.jpg' },
         { name: 'TestLink', icon: '/images/skills/testlink.png' },
-        { name: 'Confluence', icon: '/images/skills/confluence.png' },
-        { name: 'Trello', icon: '/images/skills/trello.png' }
+        { name: 'Confluence', icon: '/images/skills/confluence.jpg' },
+        { name: 'Trello', icon: '/images/skills/trello.jpg' }
       ]
     },
     {
       title: 'Reporting',
       icon: '/images/skills/reporting-icon.png',
+      fallbackIcon: '📊',
       skills: [
         { name: 'Allure', icon: '/images/skills/allure.png' },
-        { name: 'ExtentReports', icon: '/images/skills/extent.png' },
-        { name: 'TestNG Reports', icon: '/images/skills/testng.png' },
-        { name: 'Cucumber Reports', icon: '/images/skills/cucumber.png' }
       ]
     },
     {
       title: 'HTTP Monitor | Debugging Proxy | Security Analysis',
       icon: '/images/skills/security-icon.png',
+      fallbackIcon: '🔒',
       skills: [
-        { name: 'Charles Proxy', icon: '/images/skills/charles.png' },
+        { name: 'Charles Proxy', icon: '/images/skills/charles.jpg' },
         { name: 'Fiddler', icon: '/images/skills/fiddler.png' },
         { name: 'Burp Suite', icon: '/images/skills/burp.png' },
         { name: 'OWASP ZAP', icon: '/images/skills/zap.png' },
@@ -132,10 +133,11 @@ const Skills = () => {
     {
       title: 'Other',
       icon: '/images/skills/other-icon.png',
+      fallbackIcon: '🛠️',
       skills: [
         { name: 'Blockchain Testing', icon: '/images/skills/blockchain.png' },
         { name: 'Smart Contracts', icon: '/images/skills/smart-contract.png' },
-        { name: 'Security Testing', icon: '/images/skills/security.png' },
+        { name: 'Security Testing', icon: '/images/skills/security.jpg' },
         { name: 'Accessibility Testing', icon: '/images/skills/accessibility.png' },
         { name: 'Cross-browser Testing', icon: '/images/skills/cross-browser.png' },
         { name: 'Database Testing', icon: '/images/skills/database.png' }
@@ -177,7 +179,7 @@ const Skills = () => {
                   }}
                 />
                 <div className="category-fallback" style={{display: 'none'}}>
-                  {category.title.charAt(0)}
+                  <span className="fallback-emoji">{category.fallbackIcon}</span>
                 </div>
               </div>
               <div style={{ flex: 1 }}>

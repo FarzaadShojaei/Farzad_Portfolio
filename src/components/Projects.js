@@ -4,41 +4,41 @@ const Projects = () => {
   const [activeTab, setActiveTab] = useState('blockchain');
   const blockchainProjects = [
     {
-      title: "Blockchain Voting System",
-      githubUrl: "https://github.com/farzaadshojaei/blockchain-voting",
+      title: "Foundry Project",
+      githubUrl: "https://github.com/FarzaadShojaei/Hardhat_Project",
       description: "A decentralized voting application built on Ethereum blockchain that ensures transparent and tamper-proof elections. Features include smart contract integration, MetaMask wallet connection, and real-time vote tracking with complete anonymity and security."
     },
     {
-      title: "DeFi Token Exchange",
-      githubUrl: "https://github.com/farzaadshojaei/defi-exchange",
+      title: "Hardhat Project",
+      githubUrl:  "https://github.com/FarzaadShojaei/Hardhat_Project",
       description: "A comprehensive decentralized finance (DeFi) platform enabling users to swap tokens, provide liquidity, and earn rewards. Built with Solidity smart contracts, Web3.js integration, and automated market maker (AMM) functionality for seamless trading experience."
     },
     {
-      title: "NFT Marketplace",
-      githubUrl: "https://github.com/farzaadshojaei/nft-marketplace",
+      title: "Rust Crypto Wallet",
+      githubUrl: "https://github.com/farzaadshojaei/Rust_CryptoWallet",
       description: "A full-featured NFT marketplace allowing users to mint, buy, sell, and auction digital assets. Includes IPFS integration for metadata storage, royalty distribution system, and comprehensive testing suite ensuring platform reliability and security."
     }
   ];
 
   const qaProjects = [
     {
-      title: "Automated Testing Framework",
-      githubUrl: "https://github.com/farzaadshojaei/selenium-framework",
+      title: "Chatbrief",
+      githubUrl: "https://github.com/FarzaadShojaei/chatBrief_TelegramBot",
       description: "A robust Selenium-based testing framework with Page Object Model (POM) architecture, data-driven testing capabilities, and comprehensive reporting. Supports cross-browser testing, parallel execution, and integration with CI/CD pipelines for continuous quality assurance."
     },
     {
-      title: "API Testing Suite",
-      githubUrl: "https://github.com/farzaadshojaei/api-testing-suite",
+      title: "Cucumber-BDD",
+      githubUrl:"https://github.com/FarzaadShojaei/Cucumber-BDD",
       description: "Complete REST API testing solution using Postman, Newman, and Jest. Features automated test generation, performance testing, security validation, and detailed reporting with coverage metrics for comprehensive API quality assessment."
     },
     {
-      title: "Mobile App Testing Tools",
-      githubUrl: "https://github.com/farzaadshojaei/mobile-testing-tools",
+      title: "Newman",
+      githubUrl: "https://github.com/FarzaadShojaei/Newman",
       description: "Cross-platform mobile testing framework using Appium and WebDriver for iOS and Android applications. Includes device farm integration, performance monitoring, accessibility testing, and automated regression test suites."
     },
     {
-      title: "Load Testing Platform",
-      githubUrl: "https://github.com/farzaadshojaei/load-testing-platform",
+      title: "K6PerformanceTesting",
+      githubUrl: "https://github.com/FarzaadShojaei/K6PerformanceTesting",
       description: "Scalable load testing platform built with JMeter and K6 for performance evaluation of web applications. Features distributed testing, real-time monitoring, custom metrics collection, and automated performance regression detection."
     }
   ];
