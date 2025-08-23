@@ -1,7 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Projects = () => {
   const [activeTab, setActiveTab] = useState('blockchain');
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 480);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   const blockchainProjects = [
     {
       title: "Foundry Project",
@@ -92,17 +102,17 @@ const Projects = () => {
           display: 'flex',
           justifyContent: 'center',
           marginBottom: '3rem',
-          gap: '1rem'
+          gap: '0.5rem',
+          flexWrap: 'wrap'
         }}>
           <button
             className={`tab-button ${activeTab === 'blockchain' ? 'active' : ''}`}
             onClick={() => setActiveTab('blockchain')}
-            onMouseEnter={() => setActiveTab('blockchain')}
             style={{
-              padding: '1rem 2rem',
+              padding: isMobile ? '0.8rem 1.5rem' : '1rem 2rem',
               borderRadius: '30px',
               border: 'none',
-              fontSize: '1.1rem',
+              fontSize: isMobile ? '1rem' : '1.1rem',
               fontWeight: '600',
               cursor: 'pointer',
               transition: 'all 0.3s ease',
@@ -112,20 +122,23 @@ const Projects = () => {
               color: activeTab === 'blockchain' ? 'white' : '#64748b',
               boxShadow: activeTab === 'blockchain' 
                 ? '0 8px 25px rgba(14, 165, 233, 0.4)' 
-                : '0 4px 15px rgba(0, 0, 0, 0.1)'
+                : '0 4px 15px rgba(0, 0, 0, 0.1)',
+              minWidth: 'fit-content',
+              whiteSpace: 'nowrap'
             }}
           >
-            🔗 Blockchain Projects
+            <span style={{ marginRight: '0.5rem' }}>🔗</span>
+            <span style={{ display: window.innerWidth <= 400 ? 'none' : 'inline' }}>Blockchain </span>
+            Projects
           </button>
           <button
             className={`tab-button ${activeTab === 'qa' ? 'active' : ''}`}
             onClick={() => setActiveTab('qa')}
-            onMouseEnter={() => setActiveTab('qa')}
             style={{
-              padding: '1rem 2rem',
+              padding: isMobile ? '0.8rem 1.5rem' : '1rem 2rem',
               borderRadius: '30px',
               border: 'none',
-              fontSize: '1.1rem',
+              fontSize: isMobile ? '1rem' : '1.1rem',
               fontWeight: '600',
               cursor: 'pointer',
               transition: 'all 0.3s ease',
@@ -135,10 +148,14 @@ const Projects = () => {
               color: activeTab === 'qa' ? 'white' : '#64748b',
               boxShadow: activeTab === 'qa' 
                 ? '0 8px 25px rgba(14, 165, 233, 0.4)' 
-                : '0 4px 15px rgba(0, 0, 0, 0.1)'
+                : '0 4px 15px rgba(0, 0, 0, 0.1)',
+              minWidth: 'fit-content',
+              whiteSpace: 'nowrap'
             }}
           >
-            🧪 QA Projects
+            <span style={{ marginRight: '0.5rem' }}>🧪</span>
+            <span style={{ display: window.innerWidth <= 400 ? 'none' : 'inline' }}>QA </span>
+            Projects
           </button>
         </div>
 
