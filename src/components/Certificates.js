@@ -9,11 +9,21 @@ const Certificates = () => {
       id: 1,
       title: 'Blockchain Basics Certification',
       issuer: 'Cyfrin Updraft',
-      issuedDate: 'August 2024',
+      issuedDate: 'August 2025',
       credentialId: 'BBCC-ONMFTOTPQYMVB',
       image: '/images/certificates/blockchain-basics.png',
       description: 'Comprehensive certification covering fundamental blockchain concepts, decentralized systems, and cryptocurrency technologies. This course provided deep insights into blockchain architecture, consensus mechanisms, and real-world applications.',
       skills: ['Blockchain Fundamentals', 'Cryptocurrency', 'Decentralized Systems', 'Wallets', 'Smart Contracts', 'Web3 Technology']
+    },
+    {
+      id: 2,
+      title: 'Web3 Wallet Security Basics',
+      issuer: 'Cyfrin Updraft',
+      issuedDate: 'August 2025',
+      credentialId: 'ODLYUFKLT1HT',
+      image: '/images/certificates/your-new-certificate.png',
+      description: '',
+      skills: ['Web3','Wallet Security']
     }
   ];
 
