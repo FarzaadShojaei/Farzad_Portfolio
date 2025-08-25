@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaUser, FaBlog, FaBriefcase, FaCogs, FaGraduationCap, FaEnvelope, FaProjectDiagram, FaCertificate, FaBars, FaTimes } from 'react-icons/fa';
+import LazyImage from './LazyImage';
 
 const Sidebar = ({ activeSection, setActiveSection }) => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
@@ -58,6 +59,7 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
         className="mobile-nav-toggle"
         onClick={toggleMobileMenu}
         aria-label="Toggle navigation menu"
+        type="button"
       >
         {isMobileOpen ? <FaTimes /> : <FaBars />}
       </button>
@@ -72,16 +74,43 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
       <aside className={`sidebar ${isMobileOpen ? 'mobile-open' : ''}`}>
         <div className="sidebar-header">
           <div className="profile-img">
-            <img 
-              src="/profile-picture.jpg" 
-              alt="Farzaad Shojaei" 
+            <LazyImage
+              src="/profile-picture.jpg"
+              alt="Farzaad Shojaei"
               className="profile-image"
-              onError={(e) => {
-                e.target.style.display = 'none';
-                e.target.nextSibling.style.display = 'flex';
+              placeholder={
+                <div style={{
+                  width: '100%',
+                  height: '100%',
+                  borderRadius: '50%',
+                  backgroundColor: '#e2e8f0',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  animation: 'pulse 1.5s ease-in-out infinite'
+                }}>
+                  <span style={{
+                    fontSize: '2.5rem',
+                    color: '#0ea5e9',
+                    fontWeight: '600'
+                  }}>
+                    FS
+                  </span>
+                </div>
+              }
+              fallback={
+                <div className="profile-initials" style={{ display: 'flex' }}>
+                  FS
+                </div>
+              }
+              style={{
+                width: '100%',
+                height: '100%',
+                borderRadius: '50%',
+                objectFit: 'cover',
+                objectPosition: 'center 20%'
               }}
             />
-            <div className="profile-initials">FS</div>
           </div>
           <h2 className="sidebar-name">Farzaad Shojaei</h2>
           <p className="sidebar-title">Software QA Engineer | Blockchain & Security Enthusiast</p>

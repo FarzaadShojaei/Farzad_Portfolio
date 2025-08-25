@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import LazyImage from './LazyImage';
 
 const Experience = () => {
   const [expandedCards, setExpandedCards] = useState({});
@@ -69,18 +70,44 @@ const Experience = () => {
           <div key={index} className="experience-card">
             <div className="company-header">
               <div className="company-icon">
-                <img 
-                  src={exp.logo} 
+                <LazyImage
+                  src={exp.logo}
                   alt={`${exp.company} logo`}
                   className="company-logo"
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                    e.target.nextSibling.style.display = 'flex';
+                  placeholder={
+                    <div style={{
+                      width: '100%',
+                      height: '100%',
+                      backgroundColor: '#e2e8f0',
+                      borderRadius: '8px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      animation: 'pulse 1.5s ease-in-out infinite'
+                    }}>
+                      <span style={{ 
+                        fontSize: '1.5rem',
+                        color: '#0ea5e9',
+                        fontWeight: '600'
+                      }}>
+                        {exp.company.charAt(0)}
+                      </span>
+                    </div>
+                  }
+                  fallback={
+                    <div className="company-initials" style={{ display: 'flex' }}>
+                      {exp.company.charAt(0)}
+                    </div>
+                  }
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'contain',
+                    padding: '5px',
+                    background: 'white',
+                    borderRadius: '8px'
                   }}
                 />
-                <div className="company-initials" style={{display: 'none'}}>
-                  {exp.company.charAt(0)}
-                </div>
               </div>
               <div className="company-info">
                 <h3>
