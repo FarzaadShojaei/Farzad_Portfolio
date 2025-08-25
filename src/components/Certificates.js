@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import LazyImage from './LazyImage';
 
 const Certificates = () => {
   const [hoveredCert, setHoveredCert] = useState(null);
@@ -6,15 +7,14 @@ const Certificates = () => {
   const certificates = [
     {
       id: 1,
-      title: 'Certification: Blockchain Basics',
+      title: 'Blockchain Basics Certification',
       issuer: 'Cyfrin Updraft',
-      issuedDate: 'August 2025',
+      issuedDate: 'August 2024',
       credentialId: 'BBCC-ONMFTOTPQYMVB',
-      image: '/images/certificates/selenium-cert.png',
-      description: 'certification in blockchain basics',
-      skills: ['Blockchain Fundematals', 'Wallets', 'Decentralized World']
+      image: '/images/certificates/blockchain-basics.png',
+      description: 'Comprehensive certification covering fundamental blockchain concepts, decentralized systems, and cryptocurrency technologies. This course provided deep insights into blockchain architecture, consensus mechanisms, and real-world applications.',
+      skills: ['Blockchain Fundamentals', 'Cryptocurrency', 'Decentralized Systems', 'Wallets', 'Smart Contracts', 'Web3 Technology']
     }
-
   ];
 
   return (
@@ -35,18 +35,36 @@ const Certificates = () => {
             onMouseLeave={() => setHoveredCert(null)}
           >
             <div className="certificate-image-container">
-              <img 
-                src={cert.image} 
+              <LazyImage
+                src={cert.image}
                 alt={`${cert.title} Certificate`}
                 className="certificate-image"
-                onError={(e) => {
-                  e.target.style.display = 'none';
-                  e.target.nextSibling.style.display = 'flex';
+                placeholder={
+                  <div style={{
+                    width: '100%',
+                    height: '100%',
+                    backgroundColor: '#e2e8f0',
+                    borderRadius: '10px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    animation: 'pulse 1.5s ease-in-out infinite'
+                  }}>
+                    <span style={{ fontSize: '3rem' }}>🏆</span>
+                  </div>
+                }
+                fallback={
+                  <div className="certificate-fallback" style={{ display: 'flex' }}>
+                    <div className="certificate-icon">🏆</div>
+                  </div>
+                }
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  transition: 'transform 0.3s ease'
                 }}
               />
-              <div className="certificate-fallback" style={{display: 'none'}}>
-                <div className="certificate-icon">🏆</div>
-              </div>
             </div>
             
             <div className="certificate-content">

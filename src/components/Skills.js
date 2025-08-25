@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import LazyImage from './LazyImage';
 
 const Skills = () => {
   const [hoveredCategory, setHoveredCategory] = useState(null);
@@ -80,7 +81,7 @@ const Skills = () => {
       fallbackIcon: '⚡',
       skills: [
         { name: 'JMeter', icon: '/images/skills/jmeter.png' },
-        { name: 'K6', icon: '/images/skills/k6.png' }
+        { name: 'K6', icon: '/images/skills/K6.png' }
       ]
     },
     {
@@ -169,18 +170,38 @@ const Skills = () => {
           >
             <div className="skill-header">
               <div className="skill-icon">
-                <img 
-                  src={category.icon} 
+                <LazyImage
+                  src={category.icon}
                   alt={`${category.title} icon`}
                   className="category-icon"
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                    e.target.nextSibling.style.display = 'flex';
+                  placeholder={
+                    <div style={{
+                      width: '100%',
+                      height: '100%',
+                      backgroundColor: '#e2e8f0',
+                      borderRadius: '8px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      animation: 'pulse 1.5s ease-in-out infinite'
+                    }}>
+                      <span style={{ fontSize: '1.5rem' }}>{category.fallbackIcon}</span>
+                    </div>
+                  }
+                  fallback={
+                    <div className="category-fallback" style={{ display: 'flex' }}>
+                      <span className="fallback-emoji">{category.fallbackIcon}</span>
+                    </div>
+                  }
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'contain',
+                    padding: '8px',
+                    background: 'white',
+                    borderRadius: '8px'
                   }}
                 />
-                <div className="category-fallback" style={{display: 'none'}}>
-                  <span className="fallback-emoji">{category.fallbackIcon}</span>
-                </div>
               </div>
               <div style={{ flex: 1 }}>
                 <h3 className="skill-title">{category.title}</h3>
@@ -217,12 +238,39 @@ const Skills = () => {
                       opacity: 0
                     }}
                   >
-                    <img 
-                      src={skill.icon} 
+                    <LazyImage
+                      src={skill.icon}
                       alt={`${skill.name} icon`}
                       className="skill-icon-img"
-                      onError={(e) => {
-                        e.target.style.display = 'none';
+                      placeholder={
+                        <div style={{
+                          width: '16px',
+                          height: '16px',
+                          backgroundColor: '#e2e8f0',
+                          borderRadius: '2px',
+                          animation: 'pulse 1.5s ease-in-out infinite'
+                        }} />
+                      }
+                      fallback={
+                        <div style={{
+                          width: '16px',
+                          height: '16px',
+                          backgroundColor: '#0ea5e9',
+                          borderRadius: '2px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          fontSize: '8px',
+                          color: 'white',
+                          fontWeight: 'bold'
+                        }}>
+                          {skill.name.charAt(0)}
+                        </div>
+                      }
+                      style={{
+                        width: '16px',
+                        height: '16px',
+                        objectFit: 'contain'
                       }}
                     />
                     {skill.name}
