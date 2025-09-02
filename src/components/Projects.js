@@ -24,9 +24,9 @@ const Projects = () => {
       description: "A comprehensive decentralized finance (DeFi) platform enabling users to swap tokens, provide liquidity, and earn rewards. Built with Solidity smart contracts, Web3.js integration, and automated market maker (AMM) functionality for seamless trading experience."
     },
     {
-      title: "Rust Crypto Wallet",
-      githubUrl: "https://github.com/farzaadshojaei/Rust_CryptoWallet",
-      description: "A full-featured NFT marketplace allowing users to mint, buy, sell, and auction digital assets. Includes IPFS integration for metadata storage, royalty distribution system, and comprehensive testing suite ensuring platform reliability and security."
+      title: "Simple NFT ",
+      githubUrl: "https://github.com/FarzaadShojaei/Simple_Nft",
+      description: "A streamlined NFT creation and management platform built with Solidity and Web3 technologies. Features smart contract development for minting unique digital assets, metadata management, and secure ownership transfer mechanisms. Includes comprehensive testing and deployment scripts for Ethereum blockchain integration."
     }
   ];
 

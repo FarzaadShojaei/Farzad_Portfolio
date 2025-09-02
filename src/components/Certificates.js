@@ -22,8 +22,18 @@ const Certificates = () => {
       issuedDate: 'August 2025',
       credentialId: 'ODLYUFKLT1HT',
       image: '/images/certificates/your-new-certificate.png',
-      description: '',
-      skills: ['Web3','Wallet Security']
+      description: 'Essential certification focusing on Web3 wallet security fundamentals, including private key management, seed phrase protection, transaction security, and best practices for secure interaction with decentralized applications. Covers common attack vectors and mitigation strategies.',
+      skills: ['Web3', 'Wallet Security', 'Private Key Management', 'DApp Security', 'Cryptocurrency Safety', 'Smart Contract Interaction']
+    },
+    {
+      id: 3,
+      title: 'Fundamentals of Zero-Knowledge Proofs (ZKPs)',
+      issuer: 'Cyfrin Updraft',
+      issuedDate: 'September 2025',
+      credentialId: 'SCXNORHSCP1C',
+      image: '/images/certificates/your-new-certificate.png',
+      description: 'Advanced certification covering the mathematical foundations and practical implementations of Zero-Knowledge Proofs. This comprehensive course provided deep insights into ZK-SNARKs, ZK-STARKs, privacy-preserving protocols, and scalability solutions in blockchain technology.',
+      skills: ['Web3', 'Zero-Knowledge Proofs', 'ZK-SNARKs', 'ZK-STARKs', 'Privacy Protocols', 'Cryptography', 'Blockchain Scalability']
     }
   ];
 

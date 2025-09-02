@@ -147,28 +147,194 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: center;
+  text-align: left;
   background: white !important;
   border: none !important;
   box-shadow: none !important;
+  padding: 2rem 3rem !important;
+}
+
+.home-layout {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 3rem;
+  width: 100%;
+  align-items: start;
+}
+
+.home-main-content {
+  max-width: 800px;
+}
+
+.home-header {
+  margin-bottom: 3rem;
+}
+
+.home-sidebar-content {
+  position: sticky;
+  top: 2rem;
+}
+
+.home-sidebar-content > * {
+  opacity: 0;
+  animation: fadeInSlideRight 0.8s ease forwards;
+}
+
+.quick-stats {
+  animation-delay: 0.3s;
+}
+
+.tech-highlights {
+  animation-delay: 0.5s;
+}
+
+.current-focus {
+  animation-delay: 0.7s;
+}
+
+@keyframes fadeInSlideRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Quick Stats Styling */
+.quick-stats {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 2px solid rgba(14, 165, 233, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.stat-item {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.stat-item:last-child {
+  margin-bottom: 0;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #0ea5e9 0%, #1e40af 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #64748b;
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
+
+/* Tech Highlights Styling */
+.tech-highlights {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 2px solid rgba(14, 165, 233, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.tech-highlights h3 {
+  font-size: 1.2rem;
+  color: #1e293b;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tech-tag {
+  background: linear-gradient(135deg, #0ea5e9 0%, #1e40af 100%);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(14, 165, 233, 0.3);
+  transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.4);
+}
+
+/* Current Focus Styling */
+.current-focus {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  border: 2px solid rgba(14, 165, 233, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.current-focus h3 {
+  font-size: 1.2rem;
+  color: #1e293b;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.current-focus ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.current-focus li {
+  padding: 0.5rem 0;
+  color: #475569;
+  font-size: 0.9rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.current-focus li::before {
+  content: '•';
+  color: #0ea5e9;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  font-size: 1.2rem;
 }
 
 .main-title {
   font-size: 4rem;
   font-weight: 700;
   color: #000;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   background: linear-gradient(135deg, #0ea5e9 0%, #1e293b 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 .subtitle-container {
   height: 80px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 2rem;
 }
 
@@ -231,7 +397,51 @@ body {
   line-height: 1.8;
   color: #333;
   max-width: 800px;
-  margin: 0 auto;
+  margin: 0;
+  text-align: left;
+}
+
+.description-paragraph {
+  margin-bottom: 1.8rem;
+}
+
+.description-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.description-paragraph p {
+  margin: 0;
+  text-indent: 0;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  opacity: 0;
+  animation: fadeInText 0.8s ease forwards;
+}
+
+.description-paragraph:nth-child(1) p {
+  animation-delay: 0.2s;
+}
+
+.description-paragraph:nth-child(2) p {
+  animation-delay: 0.4s;
+}
+
+.description-paragraph:nth-child(3) p {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Experience Section */
@@ -877,22 +1087,33 @@ body {
   color: white;
   font-size: 1.3rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.1s ease, transform 0.1s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  min-width: 48px;
-  min-height: 48px;
+  min-width: 50px;
+  min-height: 50px;
   align-items: center;
   justify-content: center;
+  /* iOS Safari optimizations */
   -webkit-tap-highlight-color: transparent;
-  user-select: none;
+  -webkit-touch-callout: none;
   -webkit-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-appearance: none;
+  appearance: none;
+  user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  touch-action: manipulation;
+  /* Force hardware acceleration for smoother performance */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform, background-color;
+  /* Prevent iOS zoom on double tap */
+  -ms-touch-action: manipulation;
 }
 
 .mobile-nav-toggle:hover,
-.mobile-nav-toggle:focus,
-.mobile-nav-toggle:active {
+.mobile-nav-toggle:focus {
   background: rgba(14, 165, 233, 0.9);
   transform: scale(1.05);
   outline: none;
@@ -900,6 +1121,24 @@ body {
 
 .mobile-nav-toggle:active {
   transform: scale(0.95);
+  background: rgba(14, 165, 233, 1);
+}
+
+/* iOS Safari specific optimizations */
+@supports (-webkit-touch-callout: none) {
+  .mobile-nav-toggle {
+    /* Enhanced iOS performance */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    perspective: 1000;
+  }
+  
+  .mobile-nav-toggle:active {
+    transition: background-color 0.05s ease, transform 0.05s ease;
+    -webkit-transform: translateZ(0) scale(0.95);
+    transform: translateZ(0) scale(0.95);
+  }
 }
 
 .sidebar-overlay {
@@ -967,6 +1206,19 @@ body {
   
   .section {
     padding: 2.5rem 2rem;
+  }
+  
+  .home-layout {
+    grid-template-columns: 1fr 280px;
+    gap: 2rem;
+  }
+  
+  .quick-stats {
+    padding: 1.5rem;
+  }
+  
+  .stat-number {
+    font-size: 2.2rem;
   }
   
   .main-title {
@@ -1038,6 +1290,43 @@ body {
   .section {
     padding: 2rem 1.5rem;
     border-radius: 15px;
+  }
+  
+  .home-section {
+    padding: 2rem 1.5rem !important;
+  }
+  
+  .home-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .home-main-content {
+    max-width: 100%;
+  }
+  
+  .home-header {
+    margin-bottom: 2rem;
+  }
+  
+  .home-sidebar-content {
+    position: static;
+    order: -1;
+  }
+  
+  .quick-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .stat-item {
+    margin-bottom: 0;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
   }
   
   .main-title {
@@ -1162,6 +1451,62 @@ body {
   .section {
     padding: 1.5rem 1rem;
     border-radius: 12px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .home-section {
+    padding: 1.5rem 1rem !important;
+  }
+  
+  .home-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .home-main-content {
+    max-width: 100%;
+  }
+  
+  .home-header {
+    margin-bottom: 1.5rem;
+  }
+  
+  .home-sidebar-content {
+    position: static;
+    order: -1;
+  }
+  
+  .quick-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+    padding: 1rem;
+  }
+  
+  .stat-number {
+    font-size: 1.8rem;
+  }
+  
+  .stat-label {
+    font-size: 0.8rem;
+  }
+  
+  .tech-highlights,
+  .current-focus {
+    padding: 1.5rem;
+  }
+  
+  .tech-highlights h3,
+  .current-focus h3 {
+    font-size: 1.1rem;
+  }
+  
+  .description {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .description-paragraph {
     margin-bottom: 1.5rem;
   }
   
