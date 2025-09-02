@@ -115,7 +115,7 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
           <div className="profile-img">
             <LazyImage
               src="/profile-picture.jpg"
-              alt="Farzaad Shojaei"
+              alt="Farzad Shojaei"
               className="profile-image"
               placeholder={
                 <div style={{
@@ -151,7 +151,7 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
               }}
             />
           </div>
-          <h2 className="sidebar-name">Farzaad Shojaei</h2>
+          <h2 className="sidebar-name">Farzad Shojaei</h2>
           <p className="sidebar-title">Software QA Engineer | Blockchain & Security Enthusiast</p>
         </div>
         
