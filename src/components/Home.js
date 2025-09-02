@@ -1,34 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 const Home = () => {
-  const subtitles = [
-    'a Software QA Engineer',
-    'a Blockchain & Security Enthusiast',
-    'an Automation Expert'
-  ];
-
-  const [currentSubtitle, setCurrentSubtitle] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSubtitle((prev) => (prev + 1) % subtitles.length);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [subtitles.length]);
 
   return (
     <section className="section home-section">
       <div className="home-layout">
         <div className="home-main-content">
           <div className="home-header">
-            <h1 className="main-title">Hi, I'm Farzaad Shojaei</h1>
+            <h1 className="main-title">Hi, I'm Farzad Shojaei</h1>
             
-            <div className="subtitle-container">
-              <h2 className="blinking-subtitle" key={currentSubtitle}>
-                {subtitles[currentSubtitle]}
-              </h2>
-            </div>
+                      <div className="subtitle-container">
+            <h2 className="static-subtitle">
+              <span className="subtitle-text">Software QA/Test Engineer</span>
+              <span className="subtitle-separator">|</span>
+              <span className="subtitle-text">Blockchain & Security Enthusiast</span>
+            </h2>
+          </div>
           </div>
           
           <div className="description">
@@ -72,7 +59,7 @@ const Home = () => {
               <div className="stat-label">Users Served</div>
             </div>
             <div className="stat-item">
-              <div className="stat-number">50+</div>
+              <div className="stat-number">5+</div>
               <div className="stat-label">Projects Completed</div>
             </div>
           </div>
@@ -80,14 +67,13 @@ const Home = () => {
           <div className="tech-highlights">
             <h3>Core Technologies</h3>
             <div className="tech-tags">
-              <span className="tech-tag">Selenium</span>
-              <span className="tech-tag">Cypress</span>
+              <span className="tech-tag">Software Testing</span>
+              <span className="tech-tag">OWASP</span>
               <span className="tech-tag">Playwright</span>
-              <span className="tech-tag">Jest</span>
-              <span className="tech-tag">Python</span>
-              <span className="tech-tag">JavaScript</span>
-              <span className="tech-tag">Blockchain</span>
-              <span className="tech-tag">Security Testing</span>
+              <span className="tech-tag">Solidity</span>
+              <span className="tech-tag">Blockchain Development</span>
+              <span className="tech-tag">Smart Contracts</span>
+              
             </div>
           </div>
           

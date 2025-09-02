@@ -331,23 +331,30 @@ body {
 }
 
 .subtitle-container {
-  height: 80px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   margin-bottom: 2rem;
 }
 
-.blinking-subtitle {
+.static-subtitle {
   font-size: 1.8rem;
   font-weight: 500;
   color: #0ea5e9;
-  animation: blink 3s infinite;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
-@keyframes blink {
-  0%, 50% { opacity: 1; }
-  25%, 75% { opacity: 0; }
+.subtitle-text {
+  white-space: nowrap;
+}
+
+.subtitle-separator {
+  color: #64748b;
+  font-weight: 300;
+  margin: 0 0.5rem;
 }
 
 @keyframes fadeInUp {
@@ -1225,8 +1232,13 @@ body {
     font-size: 3rem;
   }
   
-  .blinking-subtitle {
+  .static-subtitle {
     font-size: 1.6rem;
+    gap: 0.8rem;
+  }
+  
+  .subtitle-separator {
+    margin: 0 0.3rem;
   }
   
   .section-title {
@@ -1334,8 +1346,13 @@ body {
     line-height: 1.2;
   }
   
-  .blinking-subtitle {
+  .static-subtitle {
     font-size: 1.4rem;
+    gap: 0.8rem;
+  }
+  
+  .subtitle-separator {
+    margin: 0 0.3rem;
   }
   
   .section-title {
@@ -1517,12 +1534,18 @@ body {
   }
   
   .subtitle-container {
-    height: 60px;
     margin-bottom: 1.5rem;
   }
   
-  .blinking-subtitle {
+  .static-subtitle {
     font-size: 1.2rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .subtitle-separator {
+    display: none;
   }
   
   .section-title {
@@ -1696,8 +1719,15 @@ body {
     font-size: 1.8rem;
   }
   
-  .blinking-subtitle {
+  .static-subtitle {
     font-size: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+  
+  .subtitle-separator {
+    display: none;
   }
   
   .section-title {
