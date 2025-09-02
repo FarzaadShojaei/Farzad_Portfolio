@@ -4,6 +4,7 @@ import LazyImage from './LazyImage';
 
 const Sidebar = ({ activeSection, setActiveSection }) => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isToggling, setIsToggling] = useState(false);
   const navItems = [
     { id: 'about', label: 'About', icon: <FaUser /> },
     { id: 'blog', label: 'Blog', icon: <FaBlog /> },
@@ -48,8 +49,36 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
     setIsMobileOpen(false);
   };
 
-  const toggleMobileMenu = () => {
-    setIsMobileOpen(!isMobileOpen);
+  const toggleMobileMenu = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    // Prevent rapid toggling
+    if (isToggling) return;
+    
+    setIsToggling(true);
+    setIsMobileOpen(prev => !prev);
+    
+    // Reset toggle lock after a short delay
+    setTimeout(() => {
+      setIsToggling(false);
+    }, 150);
+  };
+
+  // Separate handler for touch events to ensure immediate response on iOS
+  const handleTouchStart = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    // Prevent rapid toggling on touch devices too
+    if (isToggling) return;
+    
+    setIsToggling(true);
+    setIsMobileOpen(prev => !prev);
+    
+    setTimeout(() => {
+      setIsToggling(false);
+    }, 150);
   };
 
   return (
@@ -58,8 +87,18 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
       <button 
         className="mobile-nav-toggle"
         onClick={toggleMobileMenu}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={(e) => e.preventDefault()}
+        onMouseDown={(e) => e.preventDefault()}
         aria-label="Toggle navigation menu"
         type="button"
+        style={{
+          WebkitTapHighlightColor: 'transparent',
+          WebkitTouchCallout: 'none',
+          WebkitUserSelect: 'none',
+          touchAction: 'manipulation',
+          cursor: 'pointer'
+        }}
       >
         {isMobileOpen ? <FaTimes /> : <FaBars />}
       </button>
