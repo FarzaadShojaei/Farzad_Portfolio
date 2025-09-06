@@ -1,6 +1,74 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const Home = () => {
+  const [showMore, setShowMore] = useState(false);
+  const [currentInterestIndex, setCurrentInterestIndex] = useState(0);
+  const interestRef = useRef(null);
+
+  const currentInterestItems = [
+    {
+      title: 'AI-Enhanced Testing Frameworks',
+      image: '/images/skills/Python.png',
+      description: 'Building intelligent test automation systems'
+    },
+    {
+      title: 'Blockchain Security Testing',
+      image: '/images/skills/blockchain.png',
+      description: 'Securing decentralized applications and smart contracts'
+    },
+    {
+      title: 'Blockchain Development',
+      image: '/images/skills/security.jpg',
+      description: 'Privacy-preserving cryptographic protocols'
+    },
+    {
+      title: 'Software Development',
+      image: '/images/skills/smart-contract.png',
+      description: 'Next-generation decentralized web technologies'
+    }
+  ];
+
+  // Auto-rotation effect
+  useEffect(() => {
+    const autoRotateInterval = setInterval(() => {
+      setCurrentInterestIndex(prev => 
+        prev < currentInterestItems.length - 1 ? prev + 1 : 0
+      );
+    }, 4000); // Change every 4 seconds
+
+    return () => clearInterval(autoRotateInterval);
+  }, [currentInterestItems.length]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (interestRef.current && interestRef.current.contains(document.activeElement)) {
+        if (event.key === 'ArrowLeft') {
+          event.preventDefault();
+          setCurrentInterestIndex(prev => 
+            prev > 0 ? prev - 1 : currentInterestItems.length - 1
+          );
+        } else if (event.key === 'ArrowRight') {
+          event.preventDefault();
+          setCurrentInterestIndex(prev => 
+            prev < currentInterestItems.length - 1 ? prev + 1 : 0
+          );
+        }
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [currentInterestItems.length]);
+
+  const handleMoreClick = () => {
+    setShowMore(!showMore);
+  };
+
+  const handleInterestClick = (index) => {
+    setCurrentInterestIndex(index);
+  };
+
 
   return (
     <section className="section home-section">
@@ -21,30 +89,44 @@ const Home = () => {
           <div className="description">
             <div className="description-paragraph">
               <p>
-                Welcome to my portfolio! I am a passionate QA Engineer with 3+ years of experience in automation testing and 
-                cross-functional collaboration. Skilled in building AI-enhanced test frameworks and optimizing QA processes for 
-                high-scale systems serving more than 15 million users. I have a strong track record of aligning QA efforts with 
-                agile development and am seeking Software QA Engineer, Test Engineer or SDET roles in fast-paced, tech-driven environments.
+                Welcome to my portfolio! I'm a passionate QA Engineer with 3+ years of experience in automation testing, 
+                specializing in AI-enhanced frameworks and blockchain security.
               </p>
             </div>
             
             <div className="description-paragraph">
               <p>
-                As a Software Development Engineer in Test (SDET) and Quality Assurance Engineer, I specialize in creating robust 
-                testing frameworks and ensuring the highest quality standards for software applications. My expertise spans automated 
-                testing, blockchain technology, and cybersecurity, with a comprehensive approach that covers web applications, mobile 
-                apps, APIs, and blockchain platforms.
+                I'm dedicated to ensuring software quality through innovative testing methodologies and cutting-edge tools. 
+                My goal is to bridge the gap between traditional QA practices and emerging technologies.
               </p>
             </div>
             
-            <div className="description-paragraph">
-              <p>
-                I'm constantly exploring new technologies and methodologies to enhance testing efficiency and software reliability. 
-                When I'm not testing software, you can find me writing about technology trends, contributing to open-source projects, 
-                or diving deep into the latest developments in blockchain and security. I believe in continuous learning and sharing 
-                knowledge with the community.
-              </p>
-            </div>
+            {!showMore && (
+              <button className="more-button" onClick={handleMoreClick}>
+                <span>More</span>
+                <svg className="more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <polyline points="6,9 12,15 18,9"></polyline>
+                </svg>
+              </button>
+            )}
+            
+            {showMore && (
+              <>
+                <div className="description-paragraph">
+                  <p>
+                    I specialize in creating robust testing frameworks for web applications, mobile apps, APIs, and blockchain platforms. 
+                    My expertise includes automated testing, cybersecurity, and SDET practices for high-scale systems serving 15M+ users.
+                  </p>
+                </div>
+                
+                <button className="more-button show-less" onClick={handleMoreClick}>
+                  <span>Show Less</span>
+                  <svg className="more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <polyline points="18,15 12,9 6,15"></polyline>
+                  </svg>
+                </button>
+              </>
+            )}
           </div>
         </div>
         
@@ -60,7 +142,7 @@ const Home = () => {
             </div>
             <div className="stat-item">
               <div className="stat-number">5+</div>
-              <div className="stat-label">Projects Completed</div>
+              <div className="stat-label">Completed Projects</div>
             </div>
           </div>
           
@@ -77,14 +159,58 @@ const Home = () => {
             </div>
           </div>
           
-          <div className="current-focus">
-            <h3>Current Focus</h3>
-            <ul>
-              <li>AI-Enhanced Testing Frameworks</li>
-              <li>Blockchain Security Testing</li>
-              <li>Zero-Knowledge Proofs</li>
-              <li>Web3 Applications</li>
-            </ul>
+        </div>
+      </div>
+      
+      {/* Current Interests Section - Full Width */}
+      <div className="current-focus-section">
+        <div className="current-focus-container">
+          <h3 className="current-focus-main-title">Current Interests</h3>
+          <div className="current-focus-wide" ref={interestRef} tabIndex={0}>
+            <div className="focus-carousel-wide">
+              <div className="focus-item-container-wide">
+                <div className="focus-image-wide">
+                  <img 
+                    src={currentInterestItems[currentInterestIndex].image} 
+                    alt={currentInterestItems[currentInterestIndex].title}
+                    style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                  />
+                </div>
+                <div className="focus-content-wide">
+                  <h4 className="focus-title-wide">{currentInterestItems[currentInterestIndex].title}</h4>
+                  <p className="focus-description-wide">{currentInterestItems[currentInterestIndex].description}</p>
+                </div>
+              </div>
+              <div className="focus-indicators-wide">
+                {currentInterestItems.map((_, index) => (
+                  <button
+                    key={index}
+                    className={`focus-dot-wide ${index === currentInterestIndex ? 'active' : ''}`}
+                    onClick={() => handleInterestClick(index)}
+                    aria-label={`View ${currentInterestItems[index].title}`}
+                  />
+                ))}
+              </div>
+              <div className="focus-navigation-wide">
+                <button 
+                  className="focus-nav-btn-wide prev" 
+                  onClick={() => handleInterestClick(currentInterestIndex > 0 ? currentInterestIndex - 1 : currentInterestItems.length - 1)}
+                  aria-label="Previous interest item"
+                >
+                  ‹
+                </button>
+                <button 
+                  className="focus-nav-btn-wide next" 
+                  onClick={() => handleInterestClick(currentInterestIndex < currentInterestItems.length - 1 ? currentInterestIndex + 1 : 0)}
+                  aria-label="Next interest item"
+                >
+                  ›
+                </button>
+              </div>
+              <div className="keyboard-hint-wide">
+                <span>Use ← → keys to navigate</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

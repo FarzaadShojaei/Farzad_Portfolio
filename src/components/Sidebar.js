@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { FaUser, FaBlog, FaBriefcase, FaCogs, FaGraduationCap, FaEnvelope, FaProjectDiagram, FaCertificate, FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes } from 'react-icons/fa';
 import LazyImage from './LazyImage';
 
 const Sidebar = ({ activeSection, setActiveSection }) => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isToggling, setIsToggling] = useState(false);
   const navItems = [
-    { id: 'about', label: 'About', icon: <FaUser /> },
-    { id: 'blog', label: 'Blog', icon: <FaBlog /> },
-    { id: 'experience', label: 'Experience', icon: <FaBriefcase /> },
-    { id: 'skills', label: 'Skills', icon: <FaCogs /> },
-    { id: 'education', label: 'Education', icon: <FaGraduationCap /> },
-    { id: 'projects', label: 'Projects', icon: <FaProjectDiagram /> },
-    { id: 'certificates', label: 'Certificates', icon: <FaCertificate /> },
-    { id: 'contact', label: 'Contact', icon: <FaEnvelope /> },
+    { id: 'about', label: 'About', icon: <span style={{ fontSize: '1.2rem' }}>👤</span> },
+    { id: 'experience', label: 'Experience', icon: <span style={{ fontSize: '1.2rem' }}>💼</span> },
+    { id: 'skills', label: 'Skills', icon: <span style={{ fontSize: '1.2rem' }}>⚙️</span> },
+    { id: 'education', label: 'Education', icon: <span style={{ fontSize: '1.2rem' }}>🎓</span> },
+    { id: 'projects', label: 'Projects', icon: <img src="/images/skills/github.png" alt="Projects" style={{ width: '20px', height: '20px', objectFit: 'contain' }} /> },
+    { id: 'certificates', label: 'Certificates', icon: <span style={{ fontSize: '1.2rem' }}>📜</span> },
+    { id: 'contact', label: 'Links', icon: <img src="/images/skills/contact.png" alt="Links" style={{ width: '20px', height: '20px', objectFit: 'contain' }} /> },
   ];
 
   // Close mobile menu when clicking outside or on a nav item
@@ -40,11 +39,7 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
   }, [isMobileOpen]);
 
   const handleNavClick = (id) => {
-    if (id === 'blog') {
-      window.open('https://medium.com/@farzaadshojaei', '_blank');
-    } else {
-      setActiveSection(id);
-    }
+    setActiveSection(id);
     // Close mobile menu when navigation item is clicked
     setIsMobileOpen(false);
   };

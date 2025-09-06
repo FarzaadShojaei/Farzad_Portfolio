@@ -1,52 +1,43 @@
 import React from 'react';
-import { FaEnvelope, FaLinkedin, FaGithub, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
 
 const Contact = () => {
   const contactInfo = [
     {
       title: 'Email',
       info: 'farzaadshojaei@gmail.com',
-      icon: <FaEnvelope />,
+      icon: <img src="/images/skills/gmail.png" alt="Email" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />,
       link: 'mailto:farzaadshojaei@gmail.com',
-      description: 'Feel free to reach out for collaboration opportunities or just to say hello!'
+      description: 'Feel free to reach out for collaboration opportunities'
+    },
+    {
+      title: 'Phone',
+      info: '+989371434110',
+      icon: <img src="/images/skills/phone.png" alt="Phone" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />,
+      link: 'tel:+989371434110',
+      description: 'Available for calls during business hours (9 AM - 6 PM EST)'
     },
     {
       title: 'LinkedIn',
       info: 'linkedin.com/in/farzad-shojaei',
-      icon: <FaLinkedin />,
+      icon: <img src="/images/skills/Linkedin.png" alt="LinkedIn" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />,
       link: 'https://www.linkedin.com/in/farzad-shojaei/',
       description: 'Connect with me professionally and see my latest career updates'
     },
     {
       title: 'GitHub',
       info: 'github.com/farzaadshojaei',
-      icon: <FaGithub />,
+      icon: <img src="/images/skills/github.png" alt="GitHub" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />,
       link: 'https://github.com/farzaadshojaei',
       description: 'Check out my open-source projects and contributions'
-    },
-    {
-      title: 'Location',
-      info: 'Available for Remote Work',
-      icon: <FaMapMarkerAlt />,
-      link: null,
-      description: 'Currently open to remote opportunities worldwide'
-    },
-    {
-      title: 'Phone',
-      info: '+989371434110',
-      icon: <FaPhone />,
-      link: 'tel:+989371434110',
-      description: 'Available for calls during business hours (9 AM - 6 PM EST)'
     }
   ];
 
   return (
     <section className="section">
       <div className="section-header">
-        <h2 className="section-title">Get In Touch</h2>
+        <h2 className="section-title">Links & Contact</h2>
         <p className="section-subtitle">
-          I'm always interested in new opportunities, collaborations, and conversations about technology and testing. 
-          Let's connect and explore how we can work together!
+          Connect with me through various platforms and get in touch for opportunities and collaborations.
         </p>
       </div>
       
@@ -95,63 +86,6 @@ const Contact = () => {
             </p>
           </div>
         ))}
-      </div>
-      
-      <div style={{ 
-        textAlign: 'center', 
-        marginTop: '3rem', 
-        padding: '2rem',
-        background: 'white',
-        borderRadius: '15px',
-        boxShadow: '0 5px 15px rgba(0, 0, 0, 0.15)',
-        border: '2px solid rgba(14, 165, 233, 0.1)'
-      }}>
-        <h3 style={{ 
-          fontSize: '1.5rem', 
-          color: '#000', 
-          marginBottom: '1rem',
-          fontWeight: '600'
-        }}>
-          Let's Build Something Amazing Together!
-        </h3>
-        <p style={{ 
-          fontSize: '1.1rem', 
-          color: '#333', 
-          lineHeight: '1.6',
-          maxWidth: '600px',
-          margin: '0 auto'
-        }}>
-          Whether you're looking for a dedicated SDET, need consultation on test automation strategies, 
-          or want to discuss the latest trends in software testing and blockchain technology, 
-          I'm here to help. Don't hesitate to reach out!
-        </p>
-        <div style={{ marginTop: '2rem' }}>
-          <a
-            href="mailto:farzaadshojaei@gmail.com"
-            style={{
-              display: 'inline-block',
-              background: 'linear-gradient(135deg, #0ea5e9 0%, #1e40af 100%)',
-              color: 'white',
-              padding: '1rem 2rem',
-              borderRadius: '30px',
-              textDecoration: 'none',
-              fontWeight: '600',
-              fontSize: '1.1rem',
-              transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-              boxShadow: '0 5px 15px rgba(14, 165, 233, 0.4)'
-            }}
-            onMouseOver={(e) => {
-              e.target.style.transform = 'translateY(-2px)';
-              e.target.style.boxShadow = '0 10px 25px rgba(14, 165, 233, 0.6)';
-            }}
-            onMouseOut={(e) => {
-              e.target.style.transform = 'translateY(0)';
-              e.target.style.boxShadow = '0 5px 15px rgba(14, 165, 233, 0.4)';
-            }}
-          >
-            Send me an Email
-          </a>
-        </div>
       </div>
     </section>
   );
