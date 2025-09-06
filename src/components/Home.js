@@ -7,24 +7,24 @@ const Home = () => {
 
   const currentInterestItems = [
     {
-      title: 'AI-Enhanced Testing Frameworks',
-      image: '/images/skills/Python.png',
-      description: 'Building intelligent test automation systems'
+      title: 'AI-Enhanced Software Testing',
+      image: '/images/skills/AITesting.png',
+      description: 'Testing software with AI-enhanced frameworks'
     },
     {
-      title: 'Blockchain Security Testing',
-      image: '/images/skills/blockchain.png',
-      description: 'Securing decentralized applications and smart contracts'
+      title: 'Blockchain Development & Smart Contract Testing',
+      image: '/images/skills/BlockchainDevelopment.jpg',
+      description: 'Smart contract development and testing'
     },
     {
-      title: 'Blockchain Development',
-      image: '/images/skills/security.jpg',
-      description: 'Privacy-preserving cryptographic protocols'
+      title: 'Penetration Testing & Bug Bounty Hunting',
+      image: '/images/skills/PenetrationTesting.png',
+      description: 'Penetration testing and bug bounty hunting in different platforms and targets'
     },
     {
       title: 'Software Development',
-      image: '/images/skills/smart-contract.png',
-      description: 'Next-generation decentralized web technologies'
+      image: '/images/skills/SoftwareDevelopment.jpg',
+      description: 'Software development in different frameworks'
     }
   ];
 
@@ -89,15 +89,8 @@ const Home = () => {
           <div className="description">
             <div className="description-paragraph">
               <p>
-                Welcome to my portfolio! I'm a passionate QA Engineer with 3+ years of experience in automation testing, 
-                specializing in AI-enhanced frameworks and blockchain security.
-              </p>
-            </div>
-            
-            <div className="description-paragraph">
-              <p>
-                I'm dedicated to ensuring software quality through innovative testing methodologies and cutting-edge tools. 
-                My goal is to bridge the gap between traditional QA practices and emerging technologies.
+                Welcome to my portfolio! I'm a passionate Software QA Engineer with 3+ years of Software Testing experience 
+                with a Background in Software Development. I'm also a Blockchain & Security Enthusiast.
               </p>
             </div>
             
@@ -114,8 +107,22 @@ const Home = () => {
               <>
                 <div className="description-paragraph">
                   <p>
+                    I'm dedicated to ensuring software quality through innovative testing methodologies and cutting-edge tools. 
+                    My goal is to bridge the gap between traditional QA practices and emerging technologies.
+                  </p>
+                </div>
+                
+                <div className="description-paragraph">
+                  <p>
                     I specialize in creating robust testing frameworks for web applications, mobile apps, APIs, and blockchain platforms. 
                     My expertise includes automated testing, cybersecurity, and SDET practices for high-scale systems serving 15M+ users.
+                  </p>
+                </div>
+                
+                <div className="description-paragraph">
+                  <p>
+                    Beyond traditional testing, I'm passionate about blockchain security and smart contract auditing. I combine security research 
+                    with practical QA methodologies to deliver comprehensive solutions that protect users and maintain system integrity.
                   </p>
                 </div>
                 
@@ -138,7 +145,7 @@ const Home = () => {
             </div>
             <div className="stat-item">
               <div className="stat-number">15M+</div>
-              <div className="stat-label">Users Served</div>
+              <div className="stat-label">Served Users</div>
             </div>
             <div className="stat-item">
               <div className="stat-number">5+</div>
@@ -151,10 +158,10 @@ const Home = () => {
             <div className="tech-tags">
               <span className="tech-tag">Software Testing</span>
               <span className="tech-tag">OWASP</span>
-              <span className="tech-tag">Playwright</span>
+              <span className="tech-tag">Software Development</span>
               <span className="tech-tag">Solidity</span>
               <span className="tech-tag">Blockchain Development</span>
-              <span className="tech-tag">Smart Contracts</span>
+              <span className="tech-tag">Security Testing</span>
               
             </div>
           </div>
