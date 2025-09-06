@@ -1,5 +1,4 @@
 import React from 'react';
-import { FaGraduationCap, FaSchool } from 'react-icons/fa';
 
 const Education = () => {
   const education = [
@@ -7,7 +6,7 @@ const Education = () => {
       institution: 'University of Science and Culture',
       institutionUrl: 'https://usc.ac.ir', // Add your university URL here
       degree: 'Bachelor of Science in Computer Science',
-      icon: <FaGraduationCap />,
+      icon: <span style={{ fontSize: '2rem' }}>🎓</span>,
       duration: '2019 - 2023',
       details: 'Focused on software engineering, algorithms, and data structures. Completed coursework in software testing, quality assurance, and project management. Participated in coding competitions and hackathons. Final project involved developing an automated testing framework for web applications.',
       gpa: '3.3/5',
@@ -20,7 +19,7 @@ const Education = () => {
       institution: 'Seyedalshohada High School',
       institutionUrl: 'http://high.seyedalshohada.sch.ir/', // Add your school URL here
       degree: 'High School Diploma',
-      icon: <FaSchool />,
+      icon: <span style={{ fontSize: '2rem' }}>🏫</span>,
       duration: '2015 - 2019',
       details: 'Graduated with honors, specializing in Mathematics and Science.',
       gpa: '3.4/5'
