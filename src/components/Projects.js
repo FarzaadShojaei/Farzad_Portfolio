@@ -102,17 +102,18 @@ const Projects = () => {
           display: 'flex',
           justifyContent: 'center',
           marginBottom: '3rem',
-          gap: '0.5rem',
-          flexWrap: 'wrap'
+          gap: isMobile ? '0.8rem' : '0.5rem',
+          flexWrap: 'wrap',
+          padding: isMobile ? '0 1rem' : '0'
         }}>
           <button
             className={`tab-button ${activeTab === 'blockchain' ? 'active' : ''}`}
             onClick={() => setActiveTab('blockchain')}
             style={{
-              padding: isMobile ? '0.8rem 1.5rem' : '1rem 2rem',
+              padding: isMobile ? '0.8rem 1rem' : '1rem 2rem',
               borderRadius: '30px',
               border: 'none',
-              fontSize: isMobile ? '1rem' : '1.1rem',
+              fontSize: isMobile ? '0.9rem' : '1.1rem',
               fontWeight: '600',
               cursor: 'pointer',
               transition: 'all 0.3s ease',
@@ -124,21 +125,28 @@ const Projects = () => {
                 ? '0 8px 25px rgba(14, 165, 233, 0.4)' 
                 : '0 4px 15px rgba(0, 0, 0, 0.1)',
               minWidth: 'fit-content',
-              whiteSpace: 'nowrap'
+              whiteSpace: 'nowrap',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '0.3rem'
             }}
           >
-            <span style={{ marginRight: '0.5rem' }}>🔗</span>
-            <span style={{ display: window.innerWidth <= 400 ? 'none' : 'inline' }}>Blockchain </span>
-            Projects
+            <span style={{ fontSize: isMobile ? '1rem' : '1.1rem' }}>🔗</span>
+            {isMobile ? (
+              <span>Blockchain</span>
+            ) : (
+              <span>Blockchain Projects</span>
+            )}
           </button>
           <button
             className={`tab-button ${activeTab === 'qa' ? 'active' : ''}`}
             onClick={() => setActiveTab('qa')}
             style={{
-              padding: isMobile ? '0.8rem 1.5rem' : '1rem 2rem',
+              padding: isMobile ? '0.8rem 1rem' : '1rem 2rem',
               borderRadius: '30px',
               border: 'none',
-              fontSize: isMobile ? '1rem' : '1.1rem',
+              fontSize: isMobile ? '0.9rem' : '1.1rem',
               fontWeight: '600',
               cursor: 'pointer',
               transition: 'all 0.3s ease',
@@ -150,12 +158,19 @@ const Projects = () => {
                 ? '0 8px 25px rgba(14, 165, 233, 0.4)' 
                 : '0 4px 15px rgba(0, 0, 0, 0.1)',
               minWidth: 'fit-content',
-              whiteSpace: 'nowrap'
+              whiteSpace: 'nowrap',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '0.3rem'
             }}
           >
-            <span style={{ marginRight: '0.5rem' }}>🧪</span>
-            <span style={{ display: window.innerWidth <= 400 ? 'none' : 'inline' }}>QA </span>
-            Projects
+            <span style={{ fontSize: isMobile ? '1rem' : '1.1rem' }}>🧪</span>
+            {isMobile ? (
+              <span>QA Projects</span>
+            ) : (
+              <span>QA Projects</span>
+            )}
           </button>
         </div>
 
