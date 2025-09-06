@@ -3,6 +3,19 @@ import LazyImage from './LazyImage';
 
 const Certificates = () => {
   const [hoveredCert, setHoveredCert] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isSmallMobile, setIsSmallMobile] = useState(window.innerWidth <= 480);
+
+  // Handle responsive state
+  React.useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+      setIsSmallMobile(window.innerWidth <= 480);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   
   const certificates = [
     {
@@ -39,22 +52,42 @@ const Certificates = () => {
 
   return (
     <section className="section">
-      <div className="section-header">
-        <h2 className="section-title">Certifications & Credentials</h2>
-        <p className="section-subtitle">
+      <div className="section-header" style={{
+        marginBottom: isSmallMobile ? '2rem' : '3rem'
+      }}>
+        <h2 className="section-title" style={{
+          fontSize: isSmallMobile ? '1.8rem' : isMobile ? '2rem' : '2.5rem',
+          marginBottom: isSmallMobile ? '0.8rem' : '1rem'
+        }}>Certifications & Credentials</h2>
+        <p className="section-subtitle" style={{
+          fontSize: isSmallMobile ? '0.95rem' : '1.1rem',
+          lineHeight: isSmallMobile ? '1.5' : '1.6'
+        }}>
           Professional certifications that validate my expertise in software testing, automation, and emerging technologies
         </p>
       </div>
       
-      <div className="certificates-grid">
+      <div className="certificates-grid" style={{
+        gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(350px, 1fr))',
+        gap: isSmallMobile ? '1.2rem' : '2rem'
+      }}>
         {certificates.map((cert, index) => (
           <div 
             key={cert.id} 
             className="certificate-card"
-            onMouseEnter={() => setHoveredCert(index)}
-            onMouseLeave={() => setHoveredCert(null)}
+            onMouseEnter={() => !isMobile && setHoveredCert(index)}
+            onMouseLeave={() => !isMobile && setHoveredCert(null)}
+            onClick={() => isMobile && setHoveredCert(hoveredCert === index ? null : index)}
+            style={{
+              padding: isSmallMobile ? '1.2rem' : isMobile ? '1.5rem' : '2rem',
+              borderRadius: isSmallMobile ? '12px' : '15px',
+              cursor: isMobile ? 'pointer' : 'default'
+            }}
           >
-            <div className="certificate-image-container">
+            <div className="certificate-image-container" style={{
+              height: isSmallMobile ? '150px' : '200px',
+              marginBottom: isSmallMobile ? '1.2rem' : '1.5rem'
+            }}>
               <LazyImage
                 src={cert.image}
                 alt={`${cert.title} Certificate`}
@@ -70,7 +103,7 @@ const Certificates = () => {
                     justifyContent: 'center',
                     animation: 'pulse 1.5s ease-in-out infinite'
                   }}>
-                    <span style={{ fontSize: '3rem' }}>🏆</span>
+                    <span style={{ fontSize: isSmallMobile ? '2.5rem' : '3rem' }}>🏆</span>
                   </div>
                 }
                 fallback={
@@ -88,30 +121,77 @@ const Certificates = () => {
             </div>
             
             <div className="certificate-content">
-              <h3 className="certificate-title">{cert.title}</h3>
-              <p className="certificate-issuer">{cert.issuer}</p>
+              <h3 className="certificate-title" style={{
+                fontSize: isSmallMobile ? '1.2rem' : '1.4rem'
+              }}>{cert.title}</h3>
+              <p className="certificate-issuer" style={{
+                fontSize: isSmallMobile ? '0.95rem' : '1rem',
+                marginBottom: isSmallMobile ? '1.2rem' : '1.5rem'
+              }}>{cert.issuer}</p>
               
-              <div className="certificate-details">
-                <div className="certificate-date">
-                  <span className="label">Issued:</span>
-                  <span className="value">{cert.issuedDate}</span>
+              <div className="certificate-details" style={{
+                marginBottom: isSmallMobile ? '0.8rem' : '1rem'
+              }}>
+                <div className="certificate-date" style={{
+                  flexDirection: isSmallMobile ? 'column' : 'row',
+                  alignItems: isSmallMobile ? 'flex-start' : 'center',
+                  gap: isSmallMobile ? '0.3rem' : '0',
+                  marginBottom: isSmallMobile ? '0.6rem' : '0.8rem'
+                }}>
+                  <span className="label" style={{
+                    fontSize: isSmallMobile ? '0.85rem' : '0.9rem'
+                  }}>Issued:</span>
+                  <span className="value" style={{
+                    fontSize: isSmallMobile ? '0.85rem' : '0.9rem'
+                  }}>{cert.issuedDate}</span>
                 </div>
-                <div className="certificate-credential">
-                  <span className="label">Credential ID:</span>
-                  <span className="value credential-id">{cert.credentialId}</span>
+                <div className="certificate-credential" style={{
+                  flexDirection: isSmallMobile ? 'column' : 'row',
+                  alignItems: isSmallMobile ? 'flex-start' : 'center',
+                  gap: isSmallMobile ? '0.3rem' : '0'
+                }}>
+                  <span className="label" style={{
+                    fontSize: isSmallMobile ? '0.85rem' : '0.9rem'
+                  }}>Credential ID:</span>
+                  <span className="value credential-id" style={{
+                    fontSize: isSmallMobile ? '0.8rem' : '0.85rem',
+                    padding: isSmallMobile ? '0.2rem 0.4rem' : '0.3rem 0.6rem',
+                    wordBreak: isSmallMobile ? 'break-all' : 'normal'
+                  }}>{cert.credentialId}</span>
                 </div>
               </div>
 
               {hoveredCert === index && (
                 <div className="certificate-expanded">
-                  <p className="certificate-description">{cert.description}</p>
-                  <div className="certificate-skills">
+                  <p className="certificate-description" style={{
+                    fontSize: isSmallMobile ? '0.9rem' : '0.95rem',
+                    lineHeight: isSmallMobile ? '1.5' : '1.6',
+                    marginBottom: isSmallMobile ? '0.8rem' : '1rem'
+                  }}>{cert.description}</p>
+                  <div className="certificate-skills" style={{
+                    gap: isSmallMobile ? '0.4rem' : '0.5rem'
+                  }}>
                     {cert.skills.map((skill, skillIndex) => (
-                      <span key={skillIndex} className="skill-badge">
+                      <span key={skillIndex} className="skill-badge" style={{
+                        fontSize: isSmallMobile ? '0.75rem' : '0.8rem',
+                        padding: isSmallMobile ? '0.3rem 0.6rem' : '0.4rem 0.8rem'
+                      }}>
                         {skill}
                       </span>
                     ))}
                   </div>
+                </div>
+              )}
+              
+              {isMobile && hoveredCert !== index && (
+                <div style={{
+                  marginTop: '1rem',
+                  fontSize: '0.85rem',
+                  color: '#0ea5e9',
+                  fontStyle: 'italic',
+                  textAlign: 'center'
+                }}>
+                  Tap to see more details
                 </div>
               )}
             </div>

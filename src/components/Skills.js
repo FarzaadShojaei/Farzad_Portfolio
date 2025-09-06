@@ -3,6 +3,19 @@ import LazyImage from './LazyImage';
 
 const Skills = () => {
   const [hoveredCategory, setHoveredCategory] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isSmallMobile, setIsSmallMobile] = useState(window.innerWidth <= 480);
+
+  // Handle responsive state
+  React.useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+      setIsSmallMobile(window.innerWidth <= 480);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   const skillCategories = [
     {
       title: 'Languages',
@@ -148,28 +161,47 @@ const Skills = () => {
 
   return (
     <section className="section">
-      <div className="section-header">
-        <h2 className="section-title">Technical Skills</h2>
-        <p className="section-subtitle">
+      <div className="section-header" style={{
+        marginBottom: isSmallMobile ? '2rem' : '3rem'
+      }}>
+        <h2 className="section-title" style={{
+          fontSize: isSmallMobile ? '1.8rem' : isMobile ? '2rem' : '2.5rem',
+          marginBottom: isSmallMobile ? '0.8rem' : '1rem'
+        }}>Technical Skills</h2>
+        <p className="section-subtitle" style={{
+          fontSize: isSmallMobile ? '0.95rem' : '1.1rem',
+          lineHeight: isSmallMobile ? '1.5' : '1.6'
+        }}>
           A comprehensive overview of my technical expertise across various testing domains and technologies
         </p>
       </div>
       
-      <div className="skills-grid">
+      <div className="skills-grid" style={{
+        gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(300px, 1fr))',
+        gap: isSmallMobile ? '1.2rem' : '1.5rem'
+      }}>
         {skillCategories.map((category, index) => (
           <div 
             key={index} 
             className="skill-category"
-            onMouseEnter={() => setHoveredCategory(index)}
-            onMouseLeave={() => setHoveredCategory(null)}
+            onMouseEnter={() => !isMobile && setHoveredCategory(index)}
+            onMouseLeave={() => !isMobile && setHoveredCategory(null)}
+            onClick={() => isMobile && setHoveredCategory(hoveredCategory === index ? null : index)}
             style={{
               cursor: 'pointer',
               transition: 'all 0.3s ease',
-              minHeight: hoveredCategory === index ? 'auto' : '120px'
+              minHeight: hoveredCategory === index ? 'auto' : (isSmallMobile ? '100px' : '120px'),
+              padding: isSmallMobile ? '1.2rem' : '1.5rem'
             }}
           >
-            <div className="skill-header">
-              <div className="skill-icon">
+            <div className="skill-header" style={{
+              marginBottom: isSmallMobile ? '0.8rem' : '1rem'
+            }}>
+              <div className="skill-icon" style={{
+                width: isSmallMobile ? '40px' : '50px',
+                height: isSmallMobile ? '40px' : '50px',
+                marginRight: isSmallMobile ? '0.8rem' : '1rem'
+              }}>
                 <LazyImage
                   src={category.icon}
                   alt={`${category.title} icon`}
@@ -185,7 +217,7 @@ const Skills = () => {
                       justifyContent: 'center',
                       animation: 'pulse 1.5s ease-in-out infinite'
                     }}>
-                      <span style={{ fontSize: '1.5rem' }}>{category.fallbackIcon}</span>
+                      <span style={{ fontSize: isSmallMobile ? '1.2rem' : '1.5rem' }}>{category.fallbackIcon}</span>
                     </div>
                   }
                   fallback={
@@ -204,16 +236,18 @@ const Skills = () => {
                 />
               </div>
               <div style={{ flex: 1 }}>
-                <h3 className="skill-title">{category.title}</h3>
+                <h3 className="skill-title" style={{
+                  fontSize: isSmallMobile ? '1rem' : '1.1rem'
+                }}>{category.title}</h3>
                 {hoveredCategory !== index && (
                   <p style={{
-                    fontSize: '0.85rem',
+                    fontSize: isSmallMobile ? '0.8rem' : '0.85rem',
                     color: '#0ea5e9',
                     marginTop: '0.3rem',
                     fontStyle: 'italic',
                     opacity: 0.8
                   }}>
-                    see skills →
+                    {isMobile ? 'tap to see skills →' : 'see skills →'}
                   </p>
                 )}
               </div>
@@ -226,7 +260,8 @@ const Skills = () => {
                   maxHeight: hoveredCategory === index ? '500px' : '0',
                   overflow: 'hidden',
                   transition: 'all 0.4s ease',
-                  marginTop: '1rem'
+                  marginTop: '1rem',
+                  gap: isSmallMobile ? '0.4rem' : '0.5rem'
                 }}
               >
                 {category.skills.map((skill, skillIndex) => (
@@ -235,7 +270,9 @@ const Skills = () => {
                     className="skill-tag"
                     style={{
                       animation: hoveredCategory === index ? `fadeInUp 0.3s ease forwards ${skillIndex * 0.05}s` : 'none',
-                      opacity: 0
+                      opacity: 0,
+                      padding: isSmallMobile ? '0.3rem 0.6rem' : '0.4rem 0.8rem',
+                      fontSize: isSmallMobile ? '0.85rem' : '0.9rem'
                     }}
                   >
                     <LazyImage
@@ -244,8 +281,8 @@ const Skills = () => {
                       className="skill-icon-img"
                       placeholder={
                         <div style={{
-                          width: '16px',
-                          height: '16px',
+                          width: isSmallMobile ? '14px' : '16px',
+                          height: isSmallMobile ? '14px' : '16px',
                           backgroundColor: '#e2e8f0',
                           borderRadius: '2px',
                           animation: 'pulse 1.5s ease-in-out infinite'
@@ -253,14 +290,14 @@ const Skills = () => {
                       }
                       fallback={
                         <div style={{
-                          width: '16px',
-                          height: '16px',
+                          width: isSmallMobile ? '14px' : '16px',
+                          height: isSmallMobile ? '14px' : '16px',
                           backgroundColor: '#0ea5e9',
                           borderRadius: '2px',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
-                          fontSize: '8px',
+                          fontSize: isSmallMobile ? '7px' : '8px',
                           color: 'white',
                           fontWeight: 'bold'
                         }}>
@@ -268,8 +305,8 @@ const Skills = () => {
                         </div>
                       }
                       style={{
-                        width: '16px',
-                        height: '16px',
+                        width: isSmallMobile ? '14px' : '16px',
+                        height: isSmallMobile ? '14px' : '16px',
                         objectFit: 'contain'
                       }}
                     />

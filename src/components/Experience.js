@@ -3,6 +3,19 @@ import LazyImage from './LazyImage';
 
 const Experience = () => {
   const [expandedCards, setExpandedCards] = useState({});
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isSmallMobile, setIsSmallMobile] = useState(window.innerWidth <= 480);
+
+  // Handle responsive state
+  React.useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+      setIsSmallMobile(window.innerWidth <= 480);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const toggleExpanded = (index) => {
     setExpandedCards(prev => ({
@@ -58,18 +71,42 @@ const Experience = () => {
 
   return (
     <section className="section">
-      <div className="section-header">
-        <h2 className="section-title">Professional Experience</h2>
-        <p className="section-subtitle">
+      <div className="section-header" style={{
+        marginBottom: isSmallMobile ? '2rem' : '3rem'
+      }}>
+        <h2 className="section-title" style={{
+          fontSize: isSmallMobile ? '1.8rem' : isMobile ? '2rem' : '2.5rem',
+          marginBottom: isSmallMobile ? '0.8rem' : '1rem'
+        }}>Professional Experience</h2>
+        <p className="section-subtitle" style={{
+          fontSize: isSmallMobile ? '0.95rem' : '1.1rem',
+          lineHeight: isSmallMobile ? '1.5' : '1.6'
+        }}>
           My journey in software testing and quality assurance, working with diverse technologies and teams
         </p>
       </div>
       
-      <div className="experience-grid">
+      <div className="experience-grid" style={{
+        gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(350px, 1fr))',
+        gap: isSmallMobile ? '1.2rem' : '2rem'
+      }}>
         {experiences.map((exp, index) => (
-          <div key={index} className="experience-card">
-            <div className="company-header">
-              <div className="company-icon">
+          <div key={index} className="experience-card" style={{
+            padding: isSmallMobile ? '1.2rem' : isMobile ? '1.5rem' : '2rem',
+            borderRadius: isSmallMobile ? '12px' : '15px'
+          }}>
+            <div className="company-header" style={{
+              flexDirection: isMobile ? 'column' : 'row',
+              textAlign: isMobile ? 'center' : 'left',
+              gap: isMobile ? '0.8rem' : '0',
+              marginBottom: isSmallMobile ? '1.2rem' : '1.5rem'
+            }}>
+              <div className="company-icon" style={{
+                width: isSmallMobile ? '50px' : '60px',
+                height: isSmallMobile ? '50px' : '60px',
+                marginRight: isMobile ? '0' : '1rem',
+                marginBottom: isMobile ? '0' : '0'
+              }}>
                 <LazyImage
                   src={exp.logo}
                   alt={`${exp.company} logo`}
@@ -86,7 +123,7 @@ const Experience = () => {
                       animation: 'pulse 1.5s ease-in-out infinite'
                     }}>
                       <span style={{ 
-                        fontSize: '1.5rem',
+                        fontSize: isSmallMobile ? '1.2rem' : '1.5rem',
                         color: '#0ea5e9',
                         fontWeight: '600'
                       }}>
@@ -110,7 +147,10 @@ const Experience = () => {
                 />
               </div>
               <div className="company-info">
-                <h3>
+                <h3 style={{
+                  fontSize: isSmallMobile ? '1.2rem' : '1.3rem',
+                  marginBottom: isSmallMobile ? '0.3rem' : '0.5rem'
+                }}>
                   <a 
                     href={exp.url} 
                     target="_blank" 
@@ -131,29 +171,44 @@ const Experience = () => {
                     {exp.company}
                   </a>
                 </h3>
-                <p className="role">{exp.role}</p>
-                <p className="duration" style={{ fontSize: '0.9rem', color: '#888', marginTop: '0.5rem' }}>
+                <p className="role" style={{
+                  fontSize: isSmallMobile ? '0.95rem' : '1rem'
+                }}>{exp.role}</p>
+                <p className="duration" style={{ 
+                  fontSize: isSmallMobile ? '0.85rem' : '0.9rem', 
+                  color: '#888', 
+                  marginTop: '0.5rem' 
+                }}>
                   {exp.duration}
                 </p>
               </div>
             </div>
-            <div className="experience-description">
+            <div className="experience-description" style={{
+              fontSize: isSmallMobile ? '0.95rem' : '1rem',
+              lineHeight: isSmallMobile ? '1.5' : '1.6'
+            }}>
               <p>{exp.description}</p>
               {expandedCards[index] && (
                 <div className="detailed-points" style={{ marginTop: '1rem' }}>
-                  <h4 style={{ color: '#0ea5e9', fontSize: '1.1rem', marginBottom: '1rem', fontWeight: '600' }}>
+                  <h4 style={{ 
+                    color: '#0ea5e9', 
+                    fontSize: isSmallMobile ? '1rem' : '1.1rem', 
+                    marginBottom: '1rem', 
+                    fontWeight: '600' 
+                  }}>
                     Key Achievements & Responsibilities:
                   </h4>
                   <ul style={{ 
                     listStyle: 'none', 
                     padding: '0',
                     color: '#333',
-                    lineHeight: '1.6'
+                    lineHeight: isSmallMobile ? '1.5' : '1.6',
+                    fontSize: isSmallMobile ? '0.9rem' : '1rem'
                   }}>
                     {exp.detailedPoints.map((point, pointIndex) => (
                       <li key={pointIndex} style={{ 
-                        marginBottom: '0.8rem', 
-                        paddingLeft: '1.5rem',
+                        marginBottom: isSmallMobile ? '0.6rem' : '0.8rem', 
+                        paddingLeft: isSmallMobile ? '1.2rem' : '1.5rem',
                         position: 'relative'
                       }}>
                         <span style={{
@@ -177,9 +232,9 @@ const Experience = () => {
                     : 'linear-gradient(135deg, #0ea5e9 0%, #1e40af 100%)',
                   color: 'white',
                   border: 'none',
-                  padding: '0.5rem 1rem',
+                  padding: isSmallMobile ? '0.4rem 0.8rem' : '0.5rem 1rem',
                   borderRadius: '20px',
-                  fontSize: '0.9rem',
+                  fontSize: isSmallMobile ? '0.85rem' : '0.9rem',
                   fontWeight: '500',
                   cursor: 'pointer',
                   transition: 'all 0.3s ease',
