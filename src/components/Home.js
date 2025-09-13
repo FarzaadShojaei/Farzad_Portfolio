@@ -350,11 +350,6 @@ const Home = () => {
                   ›
                 </button>
               </div>
-              <div className="keyboard-hint-wide" style={{
-                fontSize: isSmallMobile ? '0.8rem' : '0.9rem'
-              }}>
-                <span>Use ← → keys to navigate</span>
-              </div>
             </div>
           </div>
         </div>
