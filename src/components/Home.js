@@ -176,7 +176,7 @@ const Home = () => {
                     maxWidth: isSmallMobile ? '120px' : '150px'
                   }}
                 >
-                  <span>Show Less</span>
+                  <span>Less</span>
                   <svg className="more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{
                     width: isSmallMobile ? '14px' : '16px',
                     height: isSmallMobile ? '14px' : '16px'
