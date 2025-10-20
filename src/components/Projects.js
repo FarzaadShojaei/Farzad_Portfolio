@@ -15,7 +15,7 @@ const Projects = () => {
   const blockchainProjects = [
     {
       title: "Foundry Project",
-      githubUrl: "https://github.com/FarzaadShojaei/Hardhat_Project",
+      githubUrl: "https://github.com/FarzaadShojaei/Foundry_Project",
       description: "A decentralized voting application built on Ethereum blockchain that ensures transparent and tamper-proof elections. Features include smart contract integration, MetaMask wallet connection, and real-time vote tracking with complete anonymity and security."
     },
     {
