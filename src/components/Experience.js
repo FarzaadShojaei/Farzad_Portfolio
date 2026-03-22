@@ -37,7 +37,7 @@ const Experience = () => {
         'Automated QA workflows for bug fixes and pre-release cycles using n8n, cutting test execution time by 50% and accelerating QA cycles for faster releases',
         
       ],
-      duration: 'August 2024 - Present'
+      duration: 'August 2024 - February 2026'
     },
     {
       company: 'Mofid Securities',

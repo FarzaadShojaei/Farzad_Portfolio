@@ -16,6 +16,16 @@ const Education = () => {
   }, []);
 
   const education = [
+      {
+      institution: 'University of Milano - Biccoca',
+      institutionUrl: 'https://www.unimib.it', // Add your university URL here
+      degree: 'Master of Artificial Intelligence in Science and Technology',
+      icon: <span style={{ fontSize: '2rem' }}>🎓</span>,
+      duration: '2025 - Present',
+      details: 'Studying',
+      gpa: ''
+    
+    },
     {
       institution: 'University of Science and Culture',
       institutionUrl: 'https://usc.ac.ir', // Add your university URL here
