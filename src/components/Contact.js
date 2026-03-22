@@ -25,9 +25,9 @@ const Contact = () => {
     },
     {
       title: 'Phone',
-      info: '+989371434110',
+      info: '+393793378464',
       icon: <img src="/images/skills/phone.png" alt="Phone" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />,
-      link: 'tel:+989371434110',
+      link: 'tel:+393793378464',
       description: 'Available for calls during business hours (9 AM - 6 PM EST)'
     },
     {
