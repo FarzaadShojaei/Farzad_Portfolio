@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import LazyImage from './LazyImage';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const Sidebar = ({ activeSection, setActiveSection }) => {
+  const { t } = useLanguage();
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isToggling, setIsToggling] = useState(false);
   const navItems = [
-    { id: 'about', label: 'About', icon: <span style={{ fontSize: '1.2rem' }}>👤</span> },
-    { id: 'experience', label: 'Experience', icon: <span style={{ fontSize: '1.2rem' }}>💼</span> },
-    { id: 'skills', label: 'Skills', icon: <span style={{ fontSize: '1.2rem' }}>⚙️</span> },
-    { id: 'education', label: 'Education', icon: <span style={{ fontSize: '1.2rem' }}>🎓</span> },
-    { id: 'projects', label: 'Projects', icon: <img src="/images/skills/github.png" alt="Projects" style={{ width: '20px', height: '20px', objectFit: 'contain' }} /> },
-    { id: 'certificates', label: 'Certificates', icon: <span style={{ fontSize: '1.2rem' }}>📜</span> },
-    { id: 'contact', label: 'Links', icon: <img src="/images/skills/contact.png" alt="Links" style={{ width: '20px', height: '20px', objectFit: 'contain' }} /> },
+    { id: 'about', label: t.nav.about, icon: <span style={{ fontSize: '1.2rem' }}>👤</span> },
+    { id: 'experience', label: t.nav.experience, icon: <span style={{ fontSize: '1.2rem' }}>💼</span> },
+    { id: 'skills', label: t.nav.skills, icon: <span style={{ fontSize: '1.2rem' }}>⚙️</span> },
+    { id: 'education', label: t.nav.education, icon: <span style={{ fontSize: '1.2rem' }}>🎓</span> },
+    { id: 'projects', label: t.nav.projects, icon: <img src="/images/skills/github.png" alt="Projects" style={{ width: '20px', height: '20px', objectFit: 'contain' }} /> },
+    { id: 'certificates', label: t.nav.certificates, icon: <span style={{ fontSize: '1.2rem' }}>📜</span> },
+    { id: 'contact', label: t.nav.links, icon: <img src="/images/skills/contact.png" alt="Links" style={{ width: '20px', height: '20px', objectFit: 'contain' }} /> },
   ];
 
   // Close mobile menu when clicking outside or on a nav item
@@ -47,13 +49,13 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
   const toggleMobileMenu = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    
+
     // Prevent rapid toggling
     if (isToggling) return;
-    
+
     setIsToggling(true);
     setIsMobileOpen(prev => !prev);
-    
+
     // Reset toggle lock after a short delay
     setTimeout(() => {
       setIsToggling(false);
@@ -64,13 +66,13 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
   const handleTouchStart = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    
+
     // Prevent rapid toggling on touch devices too
     if (isToggling) return;
-    
+
     setIsToggling(true);
     setIsMobileOpen(prev => !prev);
-    
+
     setTimeout(() => {
       setIsToggling(false);
     }, 150);
@@ -79,7 +81,7 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
   return (
     <>
       {/* Mobile Navigation Toggle Button */}
-      <button 
+      <button
         className="mobile-nav-toggle"
         onClick={toggleMobileMenu}
         onTouchStart={handleTouchStart}
@@ -99,7 +101,7 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
       </button>
 
       {/* Mobile Overlay */}
-      <div 
+      <div
         className={`sidebar-overlay ${isMobileOpen ? 'active' : ''}`}
         onClick={() => setIsMobileOpen(false)}
       />
@@ -125,7 +127,7 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
                 }}>
                   <span style={{
                     fontSize: '2.5rem',
-                    color: '#0ea5e9',
+                    color: '#E2001A',
                     fontWeight: '600'
                   }}>
                     FS
@@ -147,9 +149,9 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
             />
           </div>
           <h2 className="sidebar-name">Farzad Shojaei</h2>
-          <p className="sidebar-title">Software QA Engineer | Blockchain & Security Enthusiast</p>
+          <p className="sidebar-title">{t.sidebarTitle}</p>
         </div>
-        
+
         <nav>
           <ul className="nav-menu">
             {navItems.map((item) => (
@@ -170,4 +172,4 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
   );
 };
 
-export default Sidebar; 
+export default Sidebar;
