@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
+import { LanguageProvider } from './i18n/LanguageContext';
+import LanguageDropdown from './components/LanguageDropdown';
 import Sidebar from './components/Sidebar';
 import Home from './components/Home';
 import Experience from './components/Experience';
@@ -34,13 +36,16 @@ function App() {
   };
 
   return (
-    <div className="app">
-      <Sidebar activeSection={activeSection} setActiveSection={setActiveSection} />
-      <main className="main-content">
-        {renderSection()}
-      </main>
-    </div>
+    <LanguageProvider>
+      <div className="app">
+        <LanguageDropdown />
+        <Sidebar activeSection={activeSection} setActiveSection={setActiveSection} />
+        <main className="main-content">
+          {renderSection()}
+        </main>
+      </div>
+    </LanguageProvider>
   );
 }
 
-export default App; 
+export default App;

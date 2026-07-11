@@ -1,6 +1,8 @@
 import React from 'react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const Contact = () => {
+  const { t, lang } = useLanguage();
   const [isMobile, setIsMobile] = React.useState(window.innerWidth <= 768);
   const [isSmallMobile, setIsSmallMobile] = React.useState(window.innerWidth <= 480);
 
@@ -21,28 +23,40 @@ const Contact = () => {
       info: 'farzaadshojaei@gmail.com',
       icon: <img src="/images/skills/gmail.png" alt="Email" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />,
       link: 'mailto:farzaadshojaei@gmail.com',
-      description: 'Feel free to reach out for collaboration opportunities'
+      description: {
+        en: 'Feel free to reach out for collaboration opportunities',
+        it: 'Non esitare a contattarmi per opportunità di collaborazione',
+      }
     },
     {
       title: 'Phone',
       info: '+393793378464',
       icon: <img src="/images/skills/phone.png" alt="Phone" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />,
       link: 'tel:+393793378464',
-      description: 'Available for calls during business hours (9 AM - 6 PM EST)'
+      description: {
+        en: 'Available for calls during business hours (9 AM - 6 PM CET)',
+        it: 'Disponibile per chiamate durante l\'orario lavorativo (9:00 - 18:00 CET)',
+      }
     },
     {
       title: 'LinkedIn',
       info: 'linkedin.com/in/farzad-shojaei',
       icon: <img src="/images/skills/Linkedin.png" alt="LinkedIn" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />,
       link: 'https://www.linkedin.com/in/farzad-shojaei/',
-      description: 'Connect with me professionally and see my latest career updates'
+      description: {
+        en: 'Connect with me professionally and see my latest career updates',
+        it: 'Connettiti con me a livello professionale e segui i miei ultimi aggiornamenti di carriera',
+      }
     },
     {
       title: 'GitHub',
       info: 'github.com/farzaadshojaei',
       icon: <img src="/images/skills/github.png" alt="GitHub" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />,
       link: 'https://github.com/farzaadshojaei',
-      description: 'Check out my open-source projects and contributions'
+      description: {
+        en: 'Check out my open-source projects and contributions',
+        it: 'Dai un\'occhiata ai miei progetti open-source e ai miei contributi',
+      }
     }
   ];
 
@@ -54,12 +68,12 @@ const Contact = () => {
         <h2 className="section-title" style={{
           fontSize: isSmallMobile ? '1.8rem' : isMobile ? '2rem' : '2.5rem',
           marginBottom: isSmallMobile ? '0.8rem' : '1rem'
-        }}>Links & Contact</h2>
+        }}>{t.contact.title}</h2>
         <p className="section-subtitle" style={{
           fontSize: isSmallMobile ? '0.95rem' : '1.1rem',
           lineHeight: isSmallMobile ? '1.5' : '1.6'
         }}>
-          Connect with me through various platforms and get in touch for opportunities and collaborations.
+          {t.contact.subtitle}
         </p>
       </div>
       
@@ -125,7 +139,7 @@ const Contact = () => {
               zIndex: 2,
               pointerEvents: 'none'
             }}>
-              {contact.description}
+              {contact.description[lang]}
             </p>
           </div>
         ))}
@@ -134,4 +148,4 @@ const Contact = () => {
   );
 };
 
-export default Contact; 
+export default Contact;

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import LazyImage from './LazyImage';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const Certificates = () => {
+  const { t, lang } = useLanguage();
   const [hoveredCert, setHoveredCert] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [isSmallMobile, setIsSmallMobile] = useState(window.innerWidth <= 480);
@@ -16,7 +18,7 @@ const Certificates = () => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-  
+
   const certificates = [
     {
       id: 1,
@@ -25,7 +27,10 @@ const Certificates = () => {
       issuedDate: 'August 2025',
       credentialId: 'BBCC-ONMFTOTPQYMVB',
       image: '/images/certificates/blockchain-basics.png',
-      description: 'Comprehensive certification covering fundamental blockchain concepts, decentralized systems, and cryptocurrency technologies. This course provided deep insights into blockchain architecture, consensus mechanisms, and real-world applications.',
+      description: {
+        en: 'Comprehensive certification covering fundamental blockchain concepts, decentralized systems, and cryptocurrency technologies. This course provided deep insights into blockchain architecture, consensus mechanisms, and real-world applications.',
+        it: 'Certificazione completa che copre i concetti fondamentali della blockchain, i sistemi decentralizzati e le tecnologie delle criptovalute. Questo corso ha fornito approfondimenti su architettura blockchain, meccanismi di consenso e applicazioni reali.',
+      },
       skills: ['Blockchain Fundamentals', 'Cryptocurrency', 'Decentralized Systems', 'Wallets', 'Smart Contracts', 'Web3 Technology']
     },
     {
@@ -35,7 +40,10 @@ const Certificates = () => {
       issuedDate: 'August 2025',
       credentialId: 'ODLYUFKLT1HT',
       image: '/images/certificates/your-new-certificate.png',
-      description: 'Essential certification focusing on Web3 wallet security fundamentals, including private key management, seed phrase protection, transaction security, and best practices for secure interaction with decentralized applications. Covers common attack vectors and mitigation strategies.',
+      description: {
+        en: 'Essential certification focusing on Web3 wallet security fundamentals, including private key management, seed phrase protection, transaction security, and best practices for secure interaction with decentralized applications. Covers common attack vectors and mitigation strategies.',
+        it: 'Certificazione essenziale focalizzata sui fondamenti della sicurezza dei wallet Web3, inclusa la gestione delle chiavi private, la protezione delle seed phrase, la sicurezza delle transazioni e le best practice per un\'interazione sicura con le applicazioni decentralizzate. Copre i comuni vettori di attacco e le strategie di mitigazione.',
+      },
       skills: ['Web3', 'Wallet Security', 'Private Key Management', 'DApp Security', 'Cryptocurrency Safety', 'Smart Contract Interaction']
     },
     {
@@ -45,7 +53,10 @@ const Certificates = () => {
       issuedDate: 'September 2025',
       credentialId: 'SCXNORHSCP1C',
       image: '/images/certificates/your-new-certificate.png',
-      description: 'Advanced certification covering the mathematical foundations and practical implementations of Zero-Knowledge Proofs. This comprehensive course provided deep insights into ZK-SNARKs, ZK-STARKs, privacy-preserving protocols, and scalability solutions in blockchain technology.',
+      description: {
+        en: 'Advanced certification covering the mathematical foundations and practical implementations of Zero-Knowledge Proofs. This comprehensive course provided deep insights into ZK-SNARKs, ZK-STARKs, privacy-preserving protocols, and scalability solutions in blockchain technology.',
+        it: 'Certificazione avanzata che copre le fondamenta matematiche e le implementazioni pratiche delle Zero-Knowledge Proof. Questo corso completo ha fornito approfondimenti su ZK-SNARK, ZK-STARK, protocolli di tutela della privacy e soluzioni di scalabilità nella tecnologia blockchain.',
+      },
       skills: ['Web3', 'Zero-Knowledge Proofs', 'ZK-SNARKs', 'ZK-STARKs', 'Privacy Protocols', 'Cryptography', 'Blockchain Scalability']
     }
   ];
@@ -58,22 +69,22 @@ const Certificates = () => {
         <h2 className="section-title" style={{
           fontSize: isSmallMobile ? '1.8rem' : isMobile ? '2rem' : '2.5rem',
           marginBottom: isSmallMobile ? '0.8rem' : '1rem'
-        }}>Certifications & Credentials</h2>
+        }}>{t.certificates.title}</h2>
         <p className="section-subtitle" style={{
           fontSize: isSmallMobile ? '0.95rem' : '1.1rem',
           lineHeight: isSmallMobile ? '1.5' : '1.6'
         }}>
-          Professional certifications that validate my expertise in software testing, automation, and emerging technologies
+          {t.certificates.subtitle}
         </p>
       </div>
-      
+
       <div className="certificates-grid" style={{
         gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(350px, 1fr))',
         gap: isSmallMobile ? '1.2rem' : '2rem'
       }}>
         {certificates.map((cert, index) => (
-          <div 
-            key={cert.id} 
+          <div
+            key={cert.id}
             className="certificate-card"
             onMouseEnter={() => !isMobile && setHoveredCert(index)}
             onMouseLeave={() => !isMobile && setHoveredCert(null)}
@@ -119,7 +130,7 @@ const Certificates = () => {
                 }}
               />
             </div>
-            
+
             <div className="certificate-content">
               <h3 className="certificate-title" style={{
                 fontSize: isSmallMobile ? '1.2rem' : '1.4rem'
@@ -128,7 +139,7 @@ const Certificates = () => {
                 fontSize: isSmallMobile ? '0.95rem' : '1rem',
                 marginBottom: isSmallMobile ? '1.2rem' : '1.5rem'
               }}>{cert.issuer}</p>
-              
+
               <div className="certificate-details" style={{
                 marginBottom: isSmallMobile ? '0.8rem' : '1rem'
               }}>
@@ -140,7 +151,7 @@ const Certificates = () => {
                 }}>
                   <span className="label" style={{
                     fontSize: isSmallMobile ? '0.85rem' : '0.9rem'
-                  }}>Issued:</span>
+                  }}>{t.certificates.issued}</span>
                   <span className="value" style={{
                     fontSize: isSmallMobile ? '0.85rem' : '0.9rem'
                   }}>{cert.issuedDate}</span>
@@ -152,7 +163,7 @@ const Certificates = () => {
                 }}>
                   <span className="label" style={{
                     fontSize: isSmallMobile ? '0.85rem' : '0.9rem'
-                  }}>Credential ID:</span>
+                  }}>{t.certificates.credentialId}</span>
                   <span className="value credential-id" style={{
                     fontSize: isSmallMobile ? '0.8rem' : '0.85rem',
                     padding: isSmallMobile ? '0.2rem 0.4rem' : '0.3rem 0.6rem',
@@ -167,7 +178,7 @@ const Certificates = () => {
                     fontSize: isSmallMobile ? '0.9rem' : '0.95rem',
                     lineHeight: isSmallMobile ? '1.5' : '1.6',
                     marginBottom: isSmallMobile ? '0.8rem' : '1rem'
-                  }}>{cert.description}</p>
+                  }}>{cert.description[lang]}</p>
                   <div className="certificate-skills" style={{
                     gap: isSmallMobile ? '0.4rem' : '0.5rem'
                   }}>
@@ -182,16 +193,16 @@ const Certificates = () => {
                   </div>
                 </div>
               )}
-              
+
               {isMobile && hoveredCert !== index && (
                 <div style={{
                   marginTop: '1rem',
                   fontSize: '0.85rem',
-                  color: '#0ea5e9',
+                  color: '#E2001A',
                   fontStyle: 'italic',
                   textAlign: 'center'
                 }}>
-                  Tap to see more details
+                  {t.certificates.tapMore}
                 </div>
               )}
             </div>
@@ -203,4 +214,3 @@ const Certificates = () => {
 };
 
 export default Certificates;
-

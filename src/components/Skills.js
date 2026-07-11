@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import LazyImage from './LazyImage';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const Skills = () => {
+  const { t, lang } = useLanguage();
   const [hoveredCategory, setHoveredCategory] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [isSmallMobile, setIsSmallMobile] = useState(window.innerWidth <= 480);
@@ -16,9 +18,11 @@ const Skills = () => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+  // NOTE: Only category TITLES are translated. Skill names stay in English
+  // (they are proper nouns / tool names).
   const skillCategories = [
     {
-      title: 'Languages',
+      title: { en: 'Languages', it: 'Linguaggi' },
       icon: '/images/skills/code-icon.png',
       fallbackIcon: '💻',
       skills: [
@@ -32,7 +36,7 @@ const Skills = () => {
       ]
     },
     {
-      title: 'Web Automation',
+      title: { en: 'Web Automation', it: 'Automazione Web' },
       icon: '/images/skills/web-icon.png',
       fallbackIcon: '🌐',
       skills: [
@@ -44,7 +48,7 @@ const Skills = () => {
       ]
     },
     {
-      title: 'Mobile Automation',
+      title: { en: 'Mobile Automation', it: 'Automazione Mobile' },
       icon: '/images/skills/mobile-icon.png',
       fallbackIcon: '📱',
       skills: [
@@ -53,7 +57,7 @@ const Skills = () => {
       ]
     },
     {
-      title: 'API Automation',
+      title: { en: 'API Automation', it: 'Automazione API' },
       icon: '/images/skills/api-icon.png',
       fallbackIcon: '🔗',
       skills: [
@@ -65,7 +69,7 @@ const Skills = () => {
       ]
     },
     {
-      title: 'Frameworks',
+      title: { en: 'Frameworks', it: 'Framework' },
       icon: '/images/skills/framework-icon.png',
       fallbackIcon: '⚡',
       skills: [
@@ -78,7 +82,7 @@ const Skills = () => {
       ]
     },
     {
-      title: 'Unit | Integration Tests',
+      title: { en: 'Unit | Integration Tests', it: 'Test Unitari | Integrazione' },
       icon: '/images/skills/test-icon.png',
       fallbackIcon: '🧪',
       skills: [
@@ -89,7 +93,7 @@ const Skills = () => {
       ]
     },
     {
-      title: 'Performance Tests',
+      title: { en: 'Performance Tests', it: 'Test di Performance' },
       icon: '/images/skills/performance-icon.png',
       fallbackIcon: '⚡',
       skills: [
@@ -98,7 +102,7 @@ const Skills = () => {
       ]
     },
     {
-      title: 'VCS | CI/CD | Environments',
+      title: { en: 'VCS | CI/CD | Environments', it: 'VCS | CI/CD | Ambienti' },
       icon: '/images/skills/devops-icon.png',
       fallbackIcon: '⚙️',
       skills: [
@@ -111,7 +115,7 @@ const Skills = () => {
       ]
     },
     {
-      title: 'Test Management',
+      title: { en: 'Test Management', it: 'Gestione dei Test' },
       icon: '/images/skills/management-icon.png',
       fallbackIcon: '📋',
       skills: [
@@ -125,7 +129,7 @@ const Skills = () => {
       ]
     },
     {
-      title: 'Reporting',
+      title: { en: 'Reporting', it: 'Reportistica' },
       icon: '/images/skills/reporting-icon.png',
       fallbackIcon: '📊',
       skills: [
@@ -133,7 +137,10 @@ const Skills = () => {
       ]
     },
     {
-      title: 'HTTP Monitor | Debugging Proxy | Security Analysis',
+      title: {
+        en: 'HTTP Monitor | Debugging Proxy | Security Analysis',
+        it: 'Monitor HTTP | Proxy di Debug | Analisi di Sicurezza',
+      },
       icon: '/images/skills/security-icon.png',
       fallbackIcon: '🔒',
       skills: [
@@ -145,7 +152,7 @@ const Skills = () => {
       ]
     },
     {
-      title: 'Other',
+      title: { en: 'Other', it: 'Altro' },
       icon: '/images/skills/other-icon.png',
       fallbackIcon: '🛠️',
       skills: [
@@ -167,22 +174,22 @@ const Skills = () => {
         <h2 className="section-title" style={{
           fontSize: isSmallMobile ? '1.8rem' : isMobile ? '2rem' : '2.5rem',
           marginBottom: isSmallMobile ? '0.8rem' : '1rem'
-        }}>Technical Skills</h2>
+        }}>{t.skills.title}</h2>
         <p className="section-subtitle" style={{
           fontSize: isSmallMobile ? '0.95rem' : '1.1rem',
           lineHeight: isSmallMobile ? '1.5' : '1.6'
         }}>
-          A comprehensive overview of my technical expertise across various testing domains and technologies
+          {t.skills.subtitle}
         </p>
       </div>
-      
+
       <div className="skills-grid" style={{
         gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(300px, 1fr))',
         gap: isSmallMobile ? '1.2rem' : '1.5rem'
       }}>
         {skillCategories.map((category, index) => (
-          <div 
-            key={index} 
+          <div
+            key={index}
             className="skill-category"
             onMouseEnter={() => !isMobile && setHoveredCategory(index)}
             onMouseLeave={() => !isMobile && setHoveredCategory(null)}
@@ -204,7 +211,7 @@ const Skills = () => {
               }}>
                 <LazyImage
                   src={category.icon}
-                  alt={`${category.title} icon`}
+                  alt={`${category.title[lang]} icon`}
                   className="category-icon"
                   placeholder={
                     <div style={{
@@ -238,22 +245,22 @@ const Skills = () => {
               <div style={{ flex: 1 }}>
                 <h3 className="skill-title" style={{
                   fontSize: isSmallMobile ? '1rem' : '1.1rem'
-                }}>{category.title}</h3>
+                }}>{category.title[lang]}</h3>
                 {hoveredCategory !== index && (
                   <p style={{
                     fontSize: isSmallMobile ? '0.8rem' : '0.85rem',
-                    color: '#0ea5e9',
+                    color: '#E2001A',
                     marginTop: '0.3rem',
                     fontStyle: 'italic',
                     opacity: 0.8
                   }}>
-                    {isMobile ? 'tap to see skills →' : 'see skills →'}
+                    {isMobile ? t.skills.tapToSee : t.skills.seeSkills}
                   </p>
                 )}
               </div>
             </div>
             {hoveredCategory === index && (
-              <div 
+              <div
                 className="skill-list"
                 style={{
                   opacity: hoveredCategory === index ? 1 : 0,
@@ -265,8 +272,8 @@ const Skills = () => {
                 }}
               >
                 {category.skills.map((skill, skillIndex) => (
-                  <span 
-                    key={skillIndex} 
+                  <span
+                    key={skillIndex}
                     className="skill-tag"
                     style={{
                       animation: hoveredCategory === index ? `fadeInUp 0.3s ease forwards ${skillIndex * 0.05}s` : 'none',
@@ -292,7 +299,7 @@ const Skills = () => {
                         <div style={{
                           width: isSmallMobile ? '14px' : '16px',
                           height: isSmallMobile ? '14px' : '16px',
-                          backgroundColor: '#0ea5e9',
+                          backgroundColor: '#E2001A',
                           borderRadius: '2px',
                           display: 'flex',
                           alignItems: 'center',
