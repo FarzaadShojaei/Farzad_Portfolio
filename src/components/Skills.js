@@ -27,6 +27,7 @@ const Skills = () => {
       fallbackIcon: '💻',
       skills: [
         { name: 'JavaScript', icon: '/images/skills/javascript.png' },
+        { name: 'Python', icon: '/images/skills/python.png' },
         { name: 'Java', icon: '/images/skills/Java.png' },
         { name: 'TypeScript', icon: '/images/skills/Typescript.png' },
         { name: 'SQL', icon: '/images/skills/SQL.png' },

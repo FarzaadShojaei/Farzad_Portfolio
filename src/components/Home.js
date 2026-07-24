@@ -148,11 +148,6 @@ const Home = () => {
               gap: isSmallMobile ? '0.3rem' : '1rem'
             }}>
               <span className="subtitle-text">{t.home.subtitleA}</span>
-              <span className="subtitle-separator" style={{
-                display: isSmallMobile ? 'none' : 'inline',
-                margin: isSmallMobile ? '0' : '0 0.5rem'
-              }}>|</span>
-              <span className="subtitle-text">{t.home.subtitleB}</span>
             </h2>
           </div>
 
