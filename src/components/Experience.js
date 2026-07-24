@@ -95,6 +95,31 @@ const Experience = () => {
         ],
       },
       duration: 'June 2022 - November 2022'
+    },
+    {
+      company: 'Freelance Web Development',
+      role: { en: 'Back End Developer', it: 'Sviluppatore Back End' },
+      logo: '/images/companies/Freelance.png',
+      url: '',
+      description: {
+        en: 'Freelance — built and maintained back-end services and REST APIs for client web projects, taking features from database schema through to deployment.',
+        it: 'Freelance — sviluppo e manutenzione di servizi back-end e API REST per progetti web di clienti, seguendo le funzionalità dallo schema del database fino al deployment.',
+      },
+      detailedPoints: {
+        en: [
+          'Built and maintained back-end services and REST APIs for client web projects, taking features from database schema through to deployment, and grew from writing first scripts to owning production endpoints end to end',
+          'Traced a recurring support bottleneck to unstructured ticket handling and built a scheduled ticket-response system, cutting resolution time by 20% and giving the product team a clear view of recurring customer issues',
+          'Diagnosed slow-loading client dashboards caused by unindexed queries and N+1 database calls; restructured the queries and added indexing, taking page loads from several seconds down to near-instant',
+          'Hardened client-facing forms and endpoints after finding unvalidated inputs, adding server-side validation and sanitization to close off injection and bad-data risks — an early spark for the security focus I carry into QA today',
+        ],
+        it: [
+          'Sviluppato e mantenuto servizi back-end e API REST per progetti web di clienti, seguendo le funzionalità dallo schema del database fino al deployment, crescendo da semplici script alla piena gestione end-to-end degli endpoint in produzione',
+          'Individuato un collo di bottiglia ricorrente nella gestione non strutturata dei ticket di supporto e costruito un sistema di risposta ai ticket pianificato, riducendo del 20% i tempi di risoluzione e offrendo al team di prodotto una visione chiara dei problemi ricorrenti dei clienti',
+          'Diagnosticato dashboard clienti lente a causa di query senza indici e chiamate N+1 al database; ristrutturato le query e aggiunto indicizzazione, portando i tempi di caricamento da alcuni secondi a quasi istantanei',
+          'Rafforzato form ed endpoint rivolti ai clienti dopo aver individuato input non validati, aggiungendo validazione e sanitizzazione lato server per eliminare rischi di injection e dati non validi — una prima scintilla dell\'attenzione alla sicurezza che porto ancora oggi nel mio lavoro di QA',
+        ],
+      },
+      duration: 'February 2020 - June 2022'
     }
   ];
 
@@ -180,25 +205,29 @@ const Experience = () => {
                   fontSize: isSmallMobile ? '1.2rem' : '1.3rem',
                   marginBottom: isSmallMobile ? '0.3rem' : '0.5rem'
                 }}>
-                  <a
-                    href={exp.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      color: 'inherit',
-                      textDecoration: 'none',
-                      transition: 'color 0.3s ease',
-                      cursor: 'pointer'
-                    }}
-                    onMouseOver={(e) => {
-                      e.target.style.color = '#E2001A';
-                    }}
-                    onMouseOut={(e) => {
-                      e.target.style.color = 'inherit';
-                    }}
-                  >
-                    {exp.company}
-                  </a>
+                  {exp.url ? (
+                    <a
+                      href={exp.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        color: 'inherit',
+                        textDecoration: 'none',
+                        transition: 'color 0.3s ease',
+                        cursor: 'pointer'
+                      }}
+                      onMouseOver={(e) => {
+                        e.target.style.color = '#E2001A';
+                      }}
+                      onMouseOut={(e) => {
+                        e.target.style.color = 'inherit';
+                      }}
+                    >
+                      {exp.company}
+                    </a>
+                  ) : (
+                    exp.company
+                  )}
                 </h3>
                 <p className="role" style={{
                   fontSize: isSmallMobile ? '0.95rem' : '1rem'
